@@ -1,0 +1,91 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-image: url("../img/fond.png");
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    flex-wrap: wrap;
+}
+
+.container .box{
+    position: relative;
+    width: 320px;
+    height: 400px;
+    color:#24282E;
+    display: flex;
+    align-items: center;
+    margin: 20px 30px;
+    transition: 0.5s;
+    flex-direction: column;
+    text-align: center;
+    background: linear-gradient(95deg, #131317, #1e1e26);
+    border-radius: 10px;
+}
+.box:hover{
+    background: linear-gradient(45deg, #131317, #1e1e26);
+    transform: translateY(-15px);
+    color: #6A6A6A;
+}
+
+/*Block members*/
+.membres {
+    margin: 15px 0;
+}
+
+
+.container .box .content {
+    position : relative;
+    z-index: 10;
+    text-align: center;
+    margin-top: 1rem;
+    width: 90%;
+}
+
+.container .box .content h2 {
+    font-size: 2em;
+    color: #24282E;
+}
+
+.container .box .content p {
+    font-size: 1.1em;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.4em;
+}
+
+.moreInfo a{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    width: 40%;
+    text-decoration: none;
+    color: black;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.image  {
+    width: 50%;
+    margin-top: -15px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+
+

@@ -22,7 +22,7 @@ type Artists struct {
 func artistpage(w http.ResponseWriter, r *http.Request) {
 	//recupe donné artiste via URL API
 	var artist []Artists
-	tmpl := template.Must(template.ParseFiles("../template/artist.html"))
+	tmpl := template.Must(template.ParseFiles("../Groupie-Tracker/template/artist.html"))
 	request, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
 	if err != nil {
 		log.Fatal(err)

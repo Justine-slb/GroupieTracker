@@ -1,20 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque&family=Passion+One:wght@700&display=swap');
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Darker Grotesque', sans-serif;
 }
-
+h2,.glitch span, .Titre .glitch span{
+    font-family: 'Passion One', cursive;
+}
 body {
     min-height: 100vh;
-    background-image: url("../img/fond.png");
+    background-image: url("../img/fond2.jpg");
     width: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+.Titre .bubble .triangle{
+    content: "";
+    color: #702220;
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    clip-path: polygon(100% 100%, 0 100%, 100% 40%);
 
+}
+.Titre .glitch {
+    font-size: 6em;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+
+}
+.Titre .glitch span{
+    padding-top: 40px;
+}
+.Titre{
+    background-color: black;
+    height: 250px;
+    text-align: center;
+    opacity: 85%;
+}
 .container {
     position: relative;
     display: flex;
@@ -23,25 +52,28 @@ body {
     padding: 40px 0;
     flex-wrap: wrap;
 }
-
 .container .box{
     position: relative;
     width: 320px;
-    height: 400px;
-    color:#24282E;
+    height: 340px;
+    color:#333942;
     display: flex;
     align-items: center;
     margin: 20px 30px;
     transition: 0.5s;
     flex-direction: column;
     text-align: center;
-    background: linear-gradient(95deg, #131317, #1e1e26);
+    background: linear-gradient(95deg, #131317,#0B0B0A);
     border-radius: 10px;
+    border-style: inset ;
+    opacity: 95%;
+    box-shadow: 0.25em 0.25em 10px #441A17, -0.5em -0.5em 15px black;
 }
+
 .box:hover{
     background: linear-gradient(45deg, #131317, #1e1e26);
     transform: translateY(-15px);
-    color: #6A6A6A;
+    color: #9DA6B3;
 }
 
 /*Block members*/
@@ -57,12 +89,72 @@ body {
     margin-top: 1rem;
     width: 90%;
 }
-
-.container .box .content h2 {
-    font-size: 2em;
-    color: #24282E;
+/*Glitch title Effect*/
+.glitch {
+    font-size: 1.3em;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 0.05em 0 0 rgba(255,0,0,0.75),-0.025em -0.05em 0 rgba(0,255,0,0.75),0.025em 0.05em 0 rgba(0,0,255,0.75);
+    animation: glitch 500ms infinite;
+    position: relative;
+    left: 0;
+    top: 0;
 }
+.glitch span, .Titre .glitch span{
+    position: absolute;
+    top: 0;
+}
+.glitch span:first-child{
+    animation: glitch 650ms infinite;
+    clip-path: polygon(0 0, 100% 0,100% 45%, 0 45%);
+    transform: translate(-.025em, -0.0125em);
+    opacity: 0.8;
+}
+.glitch span:last-child{
+    animation: glitch 375ms infinite;
+    clip-path: polygon(0 80%, 100% 20%,100% 100%, 0 100%);
+    transform: translate(0.0125em, 0.025em);
+    opacity: 0.8;
+}
+@keyframes glitch {
+    0%{
+        text-shadow: 0.05em 0 0 rgba(255,0,0,0.75),
+        -0.05em -0.025em 0 rgba(0,255,0,0.75),
+        -0.025em 0.05em 0 rgba(0,0,255,0.75);
+    }
+    14%{
+        text-shadow: 0.05em 0 0 rgba(255,0,0,0.75),
+        -0.05em -0.025em 0 rgba(0,255,0,0.75),
+        -0.025em 0.05em 0 rgba(0,0,255,0.75);
+    }
+    15%{
+        text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75),
+        0.025em 0.025em 0 rgba(0,255,0,0.75),
+        -0.05em -0.05em 0 rgba(0,0,255,0.75);
+    }
+    49%{
+        text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75),
+        0.025em 0.025em 0 rgba(0,255,0,0.75),
+        -0.05em -0.05em 0 rgba(0,0,255,0.75);
+    }
+    50%{
+        text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75),
+        0.05em 0 0 rgba(0,255,0,0.75),
+        0em -0.05em 0 rgba(0,0,255,0.75);
+    }
+    99%{
+        text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75),
+        0.05em 0 0 rgba(0,255,0,0.75),
+        0em -0.05em 0 rgba(0,0,255,0.75);
+    }
+    100%{
+        text-shadow: -0.025em 0 0 rgba(255,0,0,0.75),
+        -0.025em -0.025em 0 rgba(0,255,0,0.75),
+        -0.025em -0.05em 0 rgba(0,0,255,0.75);
+    }
 
+}
 .container .box .content p {
     font-size: 1.1em;
     color: #fff;
@@ -72,20 +164,38 @@ body {
 
 .moreInfo a{
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     right: 0;
     padding: 10px;
     width: 40%;
     text-decoration: none;
-    color: black;
+    color: #333942;
     font-size: 1.3em;
     font-weight: bold;
+}
+.moreInfo a:hover{
+    color: #9DA6B3;
 }
 .image  {
     width: 50%;
     margin-top: -15px;
     margin-bottom: 10px;
     border-radius: 50%;
+    border: thick double #702220;
+    box-shadow: 0.25em 0.25em 10px #441A17, -0.5em -0.5em 15px black;
+
+}
+/*Reduce de effect if someone want to not put animation*/
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
 }
 
 

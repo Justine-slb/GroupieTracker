@@ -18,31 +18,39 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-.Titre .bubble .triangle{
-    content: "";
-    color: #702220;
-    position: absolute;
-    height: 300px;
-    width: 300px;
-    clip-path: polygon(100% 100%, 0 100%, 100% 40%);
 
-}
 .Titre .glitch {
-    font-size: 6em;
+    font-size: 8em;
     position: relative;
     display: flex;
     justify-content: center;
-    padding-top: 40px;
-
+    top: 130px;
+    z-index: 2;
 }
 .Titre .glitch span{
-    padding-top: 40px;
+    top: 130px;
+    z-index: 3;
 }
 .Titre{
-    background-color: black;
-    height: 250px;
+    height: 330px;
     text-align: center;
-    opacity: 85%;
+    position: relative;
+    background: linear-gradient(95deg, #131317,#0B0B0A);
+    z-index: -1;
+    opacity: 95%;
+    margin-bottom: 60px;
+    border-bottom: thick double #1e1e26;
+}
+.Titre .Imageeffect img{
+    width: 25%;
+    top: -90px;
+    left: 0px;
+    position: relative;
+    z-index: 0;
+    border-radius: 50%;
+    box-shadow: 0.25em 0.25em 10px #441A17, -0.5em -0.5em 15px black;
+    border: thick double #702220;
+
 }
 .container {
     position: relative;
@@ -51,34 +59,31 @@ body {
     align-items: center;
     padding: 40px 0;
     flex-wrap: wrap;
+
 }
 .container .box{
     position: relative;
     width: 320px;
-    height: 340px;
+    height: 240px;
     color:#333942;
     display: flex;
     align-items: center;
-    margin: 20px 30px;
+    margin: 30px 30px;
     transition: 0.5s;
     flex-direction: column;
     text-align: center;
     background: linear-gradient(95deg, #131317,#0B0B0A);
     border-radius: 1px;
-    border-style: inset ;
     opacity: 95%;
     box-shadow: 0.25em 0.25em 10px #441A17, -0.5em -0.5em 15px black;
+    border-style: inset ;
+
 }
 
 .box:hover{
     background: linear-gradient(45deg, #131317, #1e1e26);
     transform: translateY(-15px);
-    color: #9DA6B3;
-}
-
-/*Block members*/
-.membres {
-    margin: 15px 0;
+    border-style: outset;
 }
 
 .container .box .content {
@@ -94,11 +99,11 @@ body {
     color: white;
     font-weight: 700;
     text-transform: uppercase;
-    text-shadow: 0.05em 0 0 rgba(255,0,0,0.75),-0.025em -0.05em 0 rgba(0,255,0,0.75),0.025em 0.05em 0 rgba(0,0,255,0.75);
+    text-shadow: 0.05em 0 0 #441A17,-0.025em -0.05em 0 white,0.025em 0.05em 0 #702220;
     animation: glitch 500ms infinite;
     position: relative;
     left: 0;
-    top: 0;
+    top: -20px;
 }
 .glitch span, .Titre .glitch span{
     position: absolute;
@@ -118,25 +123,26 @@ body {
 }
 @keyframes glitch {
     0%,14%{
-        text-shadow: 0.05em 0 0 rgba(255,0,0,0.75),
-        -0.05em -0.025em 0 rgba(0,255,0,0.75),
-        -0.025em 0.05em 0 rgba(0,0,255,0.75);
+        text-shadow: 0.05em 0 0 #441A17,
+        -0.05em -0.025em 0 white,
+        -0.025em 0.05em 0 #702220;
     }
     15%,49%{
-        text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75),
-        0.025em 0.025em 0 rgba(0,255,0,0.75),
-        -0.05em -0.05em 0 rgba(0,0,255,0.75);
+        text-shadow: -0.05em -0.025em 0 #441A17,
+        0.025em 0.025em 0 white,
+        -0.05em -0.05em 0 #702220;
     }
     50%,99%{
-        text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75),
-        0.05em 0 0 rgba(0,255,0,0.75),
-        0em -0.05em 0 rgba(0,0,255,0.75);
+        text-shadow: 0.025em 0.05em 0 #441A17,
+        0.05em 0 0 white,
+        0em -0.05em 0 #702220;
     }
     100%{
-        text-shadow: -0.025em 0 0 rgba(255,0,0,0.75),
-        -0.025em -0.025em 0 rgba(0,255,0,0.75),
-        -0.025em -0.05em 0 rgba(0,0,255,0.75);
+        text-shadow: -0.025em 0 0 #441A17,
+        -0.025em -0.025em 0 white,
+        -0.025em -0.05em 0 #702220;
     }
+
 }
 .container .box .content p {
     font-size: 1.1em;
@@ -147,17 +153,27 @@ body {
 
 .moreInfo a{
     position: absolute;
-    bottom: 10px;
-    right: 0;
-    padding: 10px;
-    width: 40%;
+    margin-bottom: 5px;
+    left: 20%;
+    bottom: 18px;
+    width: 60%;
+    height: 25px;
     text-decoration: none;
-    color: #333942;
-    font-size: 1.3em;
-    font-weight: bold;
+    font-size: 1em;
+    background: linear-gradient(95deg, #131317,#0B0B0A);
+    border-radius: 25px;
+    opacity: 95%;
+    box-shadow: 0.25em 0.25em 10px #441A17, -0.5em -0.5em 15px black;
+    border-style: inset;
+    color: #9DA6B3;
+
 }
 .moreInfo a:hover{
     color: #9DA6B3;
+    border-style: outset;
+    background: linear-gradient(95deg, #441A17,#702220);
+
+
 }
 .image  {
     width: 50%;

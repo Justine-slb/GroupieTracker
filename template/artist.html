@@ -7,11 +7,12 @@
 <!--Block Body-->
 <body>
 <section class="Titre">
-    <div class="Bubble">
+    <div>
         <h2 class="glitch"><span aria-hidden="true">Artiste</span>Artiste<span aria-hidden="true">Artiste</span></h2>
-        <div class="triangle"></div>
     </div>
-
+    <div class="Imageeffect">
+        <img src="../img/artist1.png">
+    </div>
 </section>
 
 <!--Artist Card With Infomations-->
@@ -21,12 +22,6 @@
             <img class="image" src={{.Image}} alt="artist">
             <div class="content">
                 <h2 class="glitch"><span aria-hidden="true"><span aria-hidden="true">{{.Name}}</span>{{.Name}}</span>{{.Name}}</h2>
-                <p> {{.CreationDate}} </p>
-                <div class="membres">
-                    {{range .Members}}
-                            <span>{{.}}</span>
-                    {{end}}
-                </div>
             </div>
             <div class="moreInfo">
                 <a>en savoir+ </a>

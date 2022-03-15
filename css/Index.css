@@ -330,6 +330,8 @@ img {
 
 .Art_week_info h4 {
     text-transform: uppercase;
+    animation: pulsate 2.5s infinite alternate;
+
 }
 
 .Photo_Art_Week img {

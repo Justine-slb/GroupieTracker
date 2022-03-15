@@ -90,23 +90,23 @@
         <div class="element">
             <img class="img_menu" src="../css/img/microphone.png">
             <h4>ARTIST INFO</h4>
-            <p>You can choose your Artist with the search bar or into the list in the page Artist.<br>
+            <p style="text-transform: none">You can choose your Artist with the search bar or into the list in the page Artist.<br>
                 Clic and you gonna find all information about your favorites Artists or Group Band</p>
         </div>
         <div class="element">
             <img class="img_menu" src="../css/img/equalizer.png">
             <h4>FILTERS</h4>
-            <p>You want to find a show close to you, you can search with filters to facilitated your search</p>
+            <p style="text-transform: none">You want to find a show close to you, you can search with filters to facilitated your search</p>
         </div>
         <div class="element">
             <img class="img_menu" src="../css/img/concert.png">
             <h4>SHOWS MAP</h4>
-            <p>Look all Shows around the world, and find teh concert of your dreams!! </p>
+            <p style="text-transform: none">Look all Shows around the world, and find teh concert of your dreams!! </p>
         </div>
         <div class="element">
             <img class="img_menu" src="../css/img/music-cd.png">
             <h4>LISTEN MUSIC</h4>
-            <p>Direct in your Artist Page, you can listen all your favorites and follow the lastest news</p>
+            <p style="text-transform: none">Direct in your Artist Page, you can listen all your favorites and follow the lastest news</p>
         </div>
     </div>
 </section>
@@ -133,10 +133,14 @@
 
 <!--section5-->
 <section class="Artist_of_week">
-    <h2><a href ="/ArtistPage/{{.WeekArtist.ID}}">ARTIST OF THE WEEK</a></h2>
+    <h2><a href ="/ArtistPage/{{.WeekArtist.ID}}">ARTIST OF THE WEEK</a></h2><br><br>
     <div class="Artist_week_box">
         <div class="Art_week_info">
-            <h4>{{.WeekArtist.Name}}</h4>
+            <h3 style="text-transform: none">This week the artist is </h3>
+            <h4>"{{.WeekArtist.Name}}"</h4>
+                {{ range $key, $value := .WeekArtist.Relations }}
+                <h3 style="text-transform: capitalize; font-size: medium">{{$key}}:</h3>
+                <p>{{range $value}}{{.}}, {{end}}</p>{{ end }}
         </div>
         <div class="Photo_Art_Week">
             <img style="border-radius: 50%;    box-shadow: 0.05em 0.05em 45px #441A17, -0.05em -0.05em 45px black;border: thick double #702220;" src="{{.WeekArtist.Image}}">

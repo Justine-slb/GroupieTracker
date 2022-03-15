@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=KoHo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/img/favicon1.ico">
+    <link rel="stylesheet" href="../css/Moreinfo.css">
+    <link rel="stylesheet" href="../css/Style.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+          integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+          crossorigin="" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkDjGBf6I54CUYDh9SSDXXcdLOMW7jVL0&callback=initMap&libraries=&v=weekly&language=en&region=EN" async></script><<!--if key doesnt work use this one "AIzaSyDU6mnawElDNTGHeXTwf-HSPEIPrjViVwU"-->
+    <script type="text/javascript">
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 2,
+                center: {lat: 30.8566, lng: 4.3522},
+                styles: [
+                    { elementType: "geometry", stylers: [{ color: "#9D0000" }] }, { elementType: "labels.text.stroke", stylers: [{ color: "#441A17" }] }, { elementType: "labels.text.fill", stylers: [{ color: "#9DA6B3" }] },
+                    { featureType: "administrative.locality", elementType: "labels.text.fill", stylers: [{ color: "#FFFFFF" }],},
+                    { featureType: "poi", elementType: "labels.text.fill", stylers: [{ color: "#993300" }],},
+                    { featureType: "poi.park", elementType: "geometry", stylers: [{ color: "#354A46" }],},
+                    { featureType: "poi.park", elementType: "labels.text.fill", stylers: [{ color: "#46625C" }],},
+                    { featureType: "road", elementType: "geometry", stylers: [{ color: "#38414e" }],},
+                    { featureType: "road", elementType: "geometry.stroke", stylers: [{ color: "#9ca5b3" }],},
+                    { featureType: "road", elementType: "labels.text.fill", stylers: [{ color: "#9ca5b3" }],},
+                    { featureType: "road.highway", elementType: "geometry", stylers: [{ color: "#B1B1B1" }],},
+                    { featureType: "road.highway", elementType: "geometry.stroke", stylers: [{ color: "#000000" }],},
+                    { featureType: "road.highway", elementType: "labels.text.fill", stylers: [{ color: "#f3d19c" }],},
+                    { featureType: "transit", elementType: "geometry", stylers: [{ color: "#2f3948" }],},
+                    { featureType: "transit.station", elementType: "labels.text.fill", stylers: [{ color: "#d59563" }],},
+                    { featureType: "water", elementType: "geometry", stylers: [{ color: "#B1B1B1" }],},
+                    { featureType: "water", elementType: "labels.text.fill", stylers: [{ color: "#D70000" }],},
+                    { featureType: "water", elementType: "labels.text.stroke", stylers: [{ color: "#441A17" }],},],
+            });
+            const image ="https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+            const geocoder = new google.maps.Geocoder();{{ range $value := .Locations }} geocoder.geocode({ address: {{$value}}}, (results, status) => {
+                new google.maps.Marker({ map, position: results[0].geometry.location, icon: image,});});{{end}}}
+    </script>
+</head>
+<body>
+<section>
+    <div class="container2">
+        <div class="Concert">
+            <img src="{{.Image}}">
+            <h2 class="glitch"><span aria-hidden="true">CONCERT</span><span aria-hidden="true">CONCERT</span>CONCERT</h2>
+            {{ range $key, $value := .Relations }}
+            <h1>{{$key}}:</h1>
+            <p>{{range $value}}<br>{{.}}, {{end}}</p>{{ end }}
+        </div>
+        <div class="First-Album">
+            <div class="red">
+                <h2>?</h2>
+                <h3>“ Do you know when the first {{.Name}} album was released ? " <br></h3>
+                <button class="reveal" onclick="test4()" style="color: #FFFFFF; font-size: 10px; padding: 5px;background: linear-gradient(130deg, #131317, #333942);box-shadow: 0.25em 0.25em 10px #441A17, -0.5em -0.5em 15px black;border: 1px #FFFF solid; font-weight: bold; text-align: center;border-radius: 25px; text-decoration: none; ">Get the Answer<br></button>
+                <p id="AnswerFA"><br></p>
+            </div>
+            <script>
+                function test4() {
+                    document.getElementById("AnswerFA").innerHTML = "the first album was release in {{.FirstAlbum}}";
+                }
+            </script>
+        </div>
+        <div class="Deezer">
+            <img src="{{.Image}}">
+            <h2 class="glitch"><span aria-hidden="true">MEMBER</span><span aria-hidden="true">MEMBER</span>MEMBER</h2>
+            <p style="color: #E02C2C;">Do you think than "{{ .Name}}" its an "Artist name" or A "Real name"<br><br></p>
+            <button class="reveal" onclick="test3()" style="color: #FFFFFF; font-size: 10px; padding: 1%;background: linear-gradient(130deg, #131317, #333942);box-shadow: 0.25em 0.25em 10px #441A17, -0.5em -0.5em 15px black;border: 1px #FFFF solid; font-weight: bold; text-align: center;border-radius: 25px; text-decoration: none;">Get the Answer</button>
+            <p id="demo"><br></p>
+        </div>
+        <script>
+            function test3() {
+                document.getElementById("demo").innerHTML = "{{.Members}} is the real name of {{.Name}}";
+            }
+        </script>
+        <div class="Members">
+            <img style="width:230px;height:230px;" src="{{.Image}}">
+            <h2 class="glitch"><span aria-hidden="true">{{.Name}}</span><span aria-hidden="true">{{.Name}}</span>{{.Name}}</h2>
+            <a  style="color: #FFFFFF; font-size: 10px; padding: 1%;background: linear-gradient(130deg, #131317, #333942);box-shadow: 0.25em 0.25em 10px #441A17, -0.5em -0.5em 15px black;border: 1px #FFFF solid; font-weight: bold; text-align: center;border-radius: 25px; text-decoration: none; position: relative; top: -3%; " href="javascript:history.go(-1)">Return back</a>
+        </div>
+        <div class="Creation">
+            <div class="red">
+                <br>
+                <h2>START</h2>
+                <h3>{{.Name}} <br>debuted in</h3>
+                <h2>{{.CreationDate}}</h2>
+            </div>
+        </div>
+        <div class="MAPS">
+            <div id="map" style="width: auto; height: 500px;">{{.src}}</div>
+        </div>
+    </div>
+</section>
+</body>
+
+<footer>
+    <hr>
+    <div class="end">
+        <div class="Link">
+            <div class="Web">
+                <a href="https://ynov-toulouse.com/"><img class="linkpicture" src="/img/website.png"></a>
+            </div>
+            <div class="Youtube">
+                <a href="https://www.youtube.com/channel/UC6AwIUywUQu9tBOhAjd1jtQ"><img class="linkpicture" src="/img/youtube.png"></a>
+            </div>
+            <div class="Instagram">
+                <a href="https://www.instagram.com/toulouse_ynovcampus/"><img class="linkpicture" src="/img/instagram.png"></a>
+            </div>
+        </div>
+        <div class="Line"><hr></div>
+        <div class="YNOV-CAMPUS"><a href="https://ynov-toulouse.com/"><h2>Ynov<span style="font-size: 16px;">Campus</span> TOULOUSE</h2></a></div>
+        <div class="AboutUs">
+            <h2>About US</h2>
+            <p>Justine SEGUIN LE BOULANGER</p>
+            <p>Vanessa TESSIER</p>
+            <p>Bachelor 1 Informatique</p>
+        </div>
+        <div class="Work">
+            <h2>Work</h2>
+            <a href="https://ytrack.learn.ynov.com/intra/toulouse/module-tls/groupie-tracker">Project Display</a><br>
+            <a href="https://groupietrackers.herokuapp.com/api">Groupie-Trackers API</a><br>
+            <a href="https://trello.com/b/XAUiyFZM/groupie-tracker">TRELLO</a>
+        </div>
+        <div class="Website">
+            <h2>Index</h2>
+            <a href="/Index">Index</a><br>
+            <a style="color: #FFFFFF" href="/Artist">AllArtist</a><br>
+            <p>RandomArtistPage</p>
+        </div>
+    </div>
+</footer>
+
+</html>

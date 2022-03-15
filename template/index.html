@@ -1,0 +1,150 @@
+{{define "index"}}
+<!--<!doctype html>-->
+<html lang="eng">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/Index.css">
+    <link rel="stylesheet" type="text/css" href="../css/navbar.css">
+    <link rel="icon" type="image/x-icon" href="/img/favicon1.ico">
+    <title>Groupie Tracker</title>
+</head>
+
+<body>
+<!--section navbar-->
+<nav class="topnav">
+    <form class="search-container" method="GET" action="{{.LinkUrl}}">
+        <input type="text" id="myInput" name="search" onkeyup="myFunction()" placeholder="Search by Artist.."
+               autocomplete="off">
+        <button type="submit"><i class="fa fa-search"></i></button>
+        <ul id="myUL" class="sub-menu">
+            {{range .Artists}}
+            <li><a class="scroll" href="ArtistPage/{{.ID}}">{{.Name}} | Artist/Groupe</a></li>
+            {{end}}
+
+            {{range .Artists}}
+            <li><a class="scroll" href="ArtistPage/{{.ID}}">{{.CreationDate}} | Creation Date</a></li>
+            {{end}}
+
+            {{range .Location}}
+            {{range .Locations}}
+            <li><a class="scroll" href="ArtistPage/{{.}}" style="text-transform: capitalize">{{.}} | Concert Location</a></li>
+            {{end}}
+            {{end}}
+
+            {{range .Artists}}
+            {{range .Members}}
+            <li><a class="scroll" href="/ArtistPage/?search={{.}}">
+                {{.}} | Members </a></li>
+            {{end}}
+            {{end}}
+        </ul>
+    </form>
+    <label class="toggle1" for="toggle"> ☰ </label>
+    <input type="checkbox" id="toggle">
+    <div class="nav-header">
+        <a class="glitch" id="nav-title" href="/">Groupie Tracker</a>
+        <a href="#menu">Menu</a>
+        <a href="/Artist">Artist</a>
+        <a href="/">Map Show</a>
+    </div>
+</nav>
+
+<script>
+    function myFunction() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+
+<!--section1-->
+<section class="section1">
+    <h1 id="Main_Title" class="glitch">GROUPIE TRACKER</h1>
+    <h4 class="subtitle-page">FOLLOW YOUR FAVORITES ARTISTS AROUND THE WORLD</h4>
+    <form class="main_search_bar" method="GET" action="{{.LinkUrl}}">
+        <input type="text" id="myInput2" name="search" placeholder="Filtred search"
+               autocomplete="off">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+</section>
+
+<section class="section2" id="menu">
+    <div class="title-section2">
+        <h2 class="artist_Menu">MENU</h2>
+        <h4 class="subtitle-menu">FIND ALL INFORMATIONS ABOUT ARTISTS AND CONCERT AND LISTEN YOUR FAVORITES SONGS</h4>
+    </div>
+    <div class="element_Menu">
+        <div class="element">
+            <img class="img_menu" src="../css/img/microphone.png">
+            <h4>ARTIST INFO</h4>
+            <p>You can choose your Artist with the search bar or into the list in the page Artist.<br>
+                Clic and you gonna find all information about your favorites Artists or Group Band</p>
+        </div>
+        <div class="element">
+            <img class="img_menu" src="../css/img/equalizer.png">
+            <h4>FILTERS</h4>
+            <p>You want to find a show close to you, you can search with filters to facilitated your search</p>
+        </div>
+        <div class="element">
+            <img class="img_menu" src="../css/img/concert.png">
+            <h4>SHOWS MAP</h4>
+            <p>Look all Shows around the world, and find teh concert of your dreams!! </p>
+        </div>
+        <div class="element">
+            <img class="img_menu" src="../css/img/music-cd.png">
+            <h4>LISTEN MUSIC</h4>
+            <p>Direct in your Artist Page, you can listen all your favorites and follow the lastest news</p>
+        </div>
+    </div>
+</section>
+
+<!--section 3-->
+<section class="section3">
+    <div class="box-Artist">
+        <h2><a class="link_Artist" href="/Artist">FEATURES ARTISTS</a></h2>
+    </div>
+    <div class="photo_caroussel">
+        <div class="photo_ligne1">
+            {{range .Featured}}
+            <div class="star">
+                <a href="/ArtistPage/{{.ID}}"><img class="image" src={{.Image}} alt="artist"></a>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</section>
+
+<!--section4-->
+<section class="section4">
+</section>
+
+<!--section5-->
+<section class="Artist_of_week">
+    <h2><a href ="/ArtistPage/?id={{.WeekArtist.ID}}">ARTIST OF THE WEEK</a></h2>
+    <div class="Artist_week_box">
+        <div class="Art_week_info">
+            <h4>{{.WeekArtist.Name}}</h4>
+        </div>
+        <div class="Photo_Art_Week">
+            <img src="{{.WeekArtist.Image}}">
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>
+
+{{end}}

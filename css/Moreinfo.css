@@ -1,0 +1,260 @@
+
+h2,.glitch span{
+    font-family: 'Passion One', cursive;
+}
+h3, .red h2{
+    font-family: 'Monoton', cursive;
+}
+
+/*Glitch title Effect*/
+.glitch {
+    font-size: 2.2em;
+}
+
+@keyframes glitch {
+    0%,14%{
+        text-shadow: 0.05em 0 0 #441A17,
+        -0.05em -0.025em 0 white,
+        -0.025em 0.05em 0 #702220;
+    }
+    15%,49%{
+        text-shadow: -0.05em -0.025em 0 #441A17,
+        0.025em 0.025em 0 white,
+        -0.05em -0.05em 0 #702220;
+    }
+    50%,99%{
+        text-shadow: 0.025em 0.05em 0 #441A17,
+        0.05em 0 0 white,
+        0em -0.05em 0 #702220;
+    }
+    100%{
+        text-shadow: -0.025em 0 0 #441A17,
+        -0.025em -0.025em 0 white,
+        -0.025em -0.05em 0 #702220;
+    }
+
+}
+
+.container2 {
+    transition: 0.5s;
+    border-radius: 1px;
+    text-align: center;
+    opacity: 95%;
+    color: #9DA6B3;
+    margin: 1.6%;
+    display: grid;
+    grid-template-columns: 0.8fr 0.8fr 0.8fr 0.8fr;
+    grid-template-rows: 0.6fr 0.6fr 0.6fr;
+    gap: 20px 20px;
+    grid-template-areas:
+    "Members Members Creation Concert"
+    "First-Album Deezer Deezer Concert"
+    "MAPS MAPS MAPS MAPS";
+}
+
+.Concert img,.Members img,.Creation img,.First-Album img,.Deezer img{
+    border-radius: 50%;
+    width: 55px;
+    box-shadow: 0.05em 0.05em 45px #441A17, -0.05em -0.05em 45px black;
+    border: thick double #702220;
+}
+.Concert { grid-area: Concert; }
+.First-Album { grid-area: First-Album; }
+.Deezer { grid-area: Deezer; }
+.Members { grid-area: Members; }
+.Creation { grid-area: Creation; }
+.MAPS { grid-area: MAPS; }
+
+.MAPS,.Concert,.Members,.Creation,.First-Album,.Deezer{
+    border-radius: 1px;
+    background: linear-gradient(95deg, #131317,#0B0B0A);
+    box-shadow: 0.25em 0.25em 10px #441A17, -0.5em -0.5em 15px black;
+    border-style: inset;
+
+}
+/******************************************/
+/***********CREATION + FIRST ALBUM********/
+/****************************************/
+
+.First-Album, .Creation {
+    background-image: linear-gradient(#1e1e26, #702220 43%, #FFFFFF);
+}
+
+.red{
+    background: linear-gradient(95deg, #131317,#0B0B0A);
+    font-size: 1em;
+    width: 98%;
+    height: 99%;
+    margin: auto;
+    padding: 5%;
+    border: inset;
+    opacity: 95%;
+
+}
+
+.red h3, h2{
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #FCEDED;
+
+}
+.red h2  {
+    font-size: 4vw;
+    animation: flicker 1.5s infinite alternate;
+}
+
+.myStyle {
+    background-color: coral;
+    padding: 16px;
+}
+
+
+/* Flickering animation */
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+                0 0 2px #fff,
+                0 0 4px #fff,
+                0 0 6px #E02C2C,
+                0 0 10px #E02C2C,
+                0 0 45px #E02C2C,
+                0 0 55px #E02C2C,
+                0 0 70px #E02C2C,
+                0 0 80px #E02C2C;
+        }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+.red h3{
+    padding: 5px;
+    font-size: 1.4vw;
+    animation: pulsate 2.5s infinite alternate;
+}
+
+@keyframes pulsate {
+
+    100% {
+
+        text-shadow: 0 0 3px #fff,
+        0 0 6px #fff,
+        0 0 9px #E02C2C,
+        0 0 20px #E02C2C,
+        0 0 40px #E02C2C,
+        0 0 50px #E02C2C,
+        0 0 80px #E02C2C,
+        0 0 100px #E02C2C;
+    }
+    0% {
+        text-shadow: 0 0 2px #fff,
+        0 0 2px #E02C2C,
+        0 0 3px #E02C2C,
+        0 0 5px #E02C2C,
+        0 0 10px #E02C2C,
+        0 0 15px #E02C2C,
+        0 0 20px #E02C2C,
+        0 0 40px #E02C2C;
+    }
+}
+
+/**********Red part*************/
+.red p {
+    font-size: 0.8em;
+}
+
+
+.Concert,.Members,.Creation,.First-Album,.Deezer{
+    padding: 2.6%;
+}
+
+
+/*************************CONCERT***************************/
+.Concert h1{
+    font-size: 1.3vw;
+    margin-bottom: -18px;
+    margin-left: 15%;
+    margin-right: 15%;
+    color: #9DA6B3;
+    border-bottom: inset;
+    border-radius: 0px 10px;
+    text-transform: uppercase;
+    border-color: #702220;
+    opacity: 80%;
+}
+
+@keyframes pulsate {
+
+    100% {
+        color: #FCEDED;
+        text-shadow: 0 0 6px #fff,
+        0 0 10px #fff,
+        0 0 20px #E02C2C,
+        0 0 40px #E02C2C,
+        0 0 80px #E02C2C
+    }
+    0% {
+        text-shadow: 0 0 2px #fff;
+        color: #702220;
+    }
+}
+
+.Concert p{
+    margin-bottom: 10px;
+    color: #E02C2C;
+}
+
+#map {
+    /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+    height: 400px;
+    filter: grayscale(50%);
+}
+
+
+/************************/
+/***********Footer*****/
+
+.end {  display: grid;
+    padding: 15px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 0.1fr 0.3fr;
+    gap: 20px 30px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "AboutUs Work Website"
+    "Line Line Line"
+    "YNOV-CAMPUS YNOV-CAMPUS Link";
+    background-color: #131317;
+    color: #9DA6B3;
+}
+
+.Link {  display: grid;
+    grid-template-columns: 0.2fr 0.2fr 0.2fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "Web Youtube Instagram";
+    grid-area: Link;
+}
+.linkpicture{
+    width: 45%;
+    background-image: linear-gradient(#441A17, #702220 43%,#E02C2C);
+    box-shadow: 0.05em 0.05em 5px #333942, -0.05em -0.05em 5px #441A17;
+    border: 1px inset  #702220;    border-radius: 50%;    margin: auto;}
+
+.linkpicture:hover{    border: 1px inset  #E02C2C;
+    background-image: linear-gradient(#702220,#E02C2C);}
+
+.Web { grid-area: Web; }
+.Youtube { grid-area: Youtube; }
+.Instagram { grid-area: Instagram; }
+.Line { grid-area: Line; }
+.YNOV-CAMPUS { grid-area: YNOV-CAMPUS; }
+.YNOV-CAMPUS h2{
+    padding: 5px;
+    font-size: 2vw;
+    animation: pulsate 2.5s infinite alternate;
+}
+.AboutUs { grid-area: AboutUs; }
+.Work { grid-area: Work; }
+.Website { grid-area: Website; }

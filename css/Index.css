@@ -317,6 +317,7 @@ img {
 }
 
 .Artist_of_week{
+
     border-top: 1px solid #FFFFFF;
     padding-bottom: 5rem;
     margin:0 auto;
@@ -324,9 +325,7 @@ img {
 .Artist_of_week h2 a {
     text-decoration: none;
     color: white;
-}
-.Artist_of_week h2 a:hover{
-    color:darkred;
+    animation: pulsate 2.5s infinite alternate;
 }
 
 .Art_week_info h4 {
@@ -334,10 +333,34 @@ img {
 }
 
 .Photo_Art_Week img {
-    padding: 2rem;
-    border: 2px solid #FFFFFF;
+    padding: 1rem;
     margin:0 auto;
-    filter: saturate(0%);
+    filter: saturate(30%);
     width: 400px;
     height: auto;
+}
+
+@keyframes pulsate {
+
+    100% {
+
+        text-shadow: 0 0 3px #fff,
+        0 0 6px #fff,
+        0 0 9px #E02C2C,
+        0 0 20px #E02C2C,
+        0 0 40px #E02C2C,
+        0 0 50px #E02C2C,
+        0 0 80px #E02C2C,
+        0 0 100px #E02C2C;
+    }
+    0% {
+        text-shadow: 0 0 2px #fff,
+        0 0 2px #E02C2C,
+        0 0 3px #E02C2C,
+        0 0 5px #E02C2C,
+        0 0 10px #E02C2C,
+        0 0 15px #E02C2C,
+        0 0 20px #E02C2C,
+        0 0 40px #E02C2C;
+    }
 }

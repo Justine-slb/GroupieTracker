@@ -3,8 +3,8 @@
 <html lang="eng">
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/Style.css">
-    <link rel="stylesheet" href="../css/Index.css">
+    <link rel="stylesheet" type="text/css" href="../css/Index.css">
+    <link rel="stylesheet" type="text/css" href="../css/Style.css">
     <link rel="stylesheet" type="text/css" href="../css/navbar.css">
     <link rel="icon" type="image/x-icon" href="/img/favicon1.ico">
     <title>Groupie Tracker</title>
@@ -14,7 +14,7 @@
 <!--section navbar-->
 <nav class="topnav">
     <form class="search-container" method="GET" action="{{.LinkUrl}}">
-        <input type="text" id="myInput" name="search" onkeyup="myFunction()" placeholder="Search by Artist.."
+        <input type="text" id="myInput" name="search" onkeyup="myFunction()" placeholder="Search"
                autocomplete="off">
         <button type="submit"><i class="fa fa-search"></i></button>
         <ul id="myUL" class="sub-menu">
@@ -26,7 +26,7 @@
             <li><a class="scroll" href="ArtistPage/{{.ID}}">{{.CreationDate}} | Creation Date</a></li>
             {{end}}
 
-            {{range .Location}}
+            {{range .Location.Index}}
             {{range .Locations}}
             <li><a class="scroll" href="ArtistPage/{{.}}" style="text-transform: capitalize">{{.}} | Concert Location</a></li>
             {{end}}
@@ -43,10 +43,9 @@
     <label class="toggle1" for="toggle"> ☰ </label>
     <input type="checkbox" id="toggle">
     <div class="nav-header">
-        <a class="glitch" id="nav-title" href="/">Groupie Tracker</a>
-        <a href="#menu">Menu</a>
+        <a href="/">Groupie Tracker</a>
+        <a href="/#menu">Menu</a>
         <a href="/Artist">Artist</a>
-        <a href="/">Map Show</a>
     </div>
 </nav>
 
@@ -72,10 +71,10 @@
 
 <!--section1-->
 <section class="section1">
-    <h1 id="Main_Title" class="glitch">GROUPIE TRACKER</h1>
+    <h1 id="Main_Title" class="mainTitre"> <!--class="glitch"-->GROUPIE TRACKER</h1>
     <h4 class="subtitle-page">FOLLOW YOUR FAVORITES ARTISTS AROUND THE WORLD</h4>
     <form class="main_search_bar" method="GET" action="{{.LinkUrl}}">
-        <input type="text" id="myInput2" name="search" placeholder="Filtred search"
+        <input type="text" id="myInput2" name="search" placeholder="search"
                autocomplete="off">
         <button type="submit"><i class="fa fa-search"></i></button>
     </form>
@@ -150,6 +149,45 @@
 </section>
 
 </body>
+
+<div class="footer">
+    <hr>
+    <div class="end">
+        <div class="Link">
+            <div class="Web">
+                <img class="linkpicture" src="/img/website.png">
+            </div>
+            <div class="Youtube">
+                <img class="linkpicture" src="/img/youtube.png">
+            </div>
+            <div class="Instagram">
+                <img class="linkpicture" src="/img/instagram.png">
+            </div>
+        </div>
+        <div class="Line">
+            <hr>
+        </div>
+        <div class="YNOV-CAMPUS"><h2 class="">Ynov<span style="font-size: 16px;">Campus</span> TOULOUSE</h2></div>
+        <div class="AboutUs">
+            <h2>About US</h2>
+            <p>Justine SEGUIN LE BOULANGER</p>
+            <p>Vanessa TESSIER</p>
+            <p>Bachelor 1 Informatique</p>
+        </div>
+        <div class="Work">
+            <h2>Work</h2>
+            <p>Ennoncé</p>
+            <p>API Herokuapp</p>
+            <p>API Spotify</p>
+            <p>Trello</p>
+        </div>
+        <div class="Website">
+            <h2>Index</h2>
+            <p>AllArtist</p>
+            <p>RandomArtistPage</p>
+        </div>
+    </div>
+</div>
 </html>
 
 {{end}}

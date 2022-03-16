@@ -1,0 +1,118 @@
+#FiltersSection {
+    background: rgba(20,20,20,1);
+    height: auto;
+    margin: 0 auto;
+}
+
+/*Title*/
+#FilterTitle{
+    margin: 0 auto;
+
+}
+#FilterTitle h4 {
+    letter-spacing: 2px;
+    font-family: "Yu Gothic Medium";
+    font-size: 3vmax;
+}
+
+#FilterTitle h4:hover{
+    color: darkred;
+}
+/*font size*/
+label{
+    color:white;
+    font-size: 20px;
+}
+
+input[type=text]{
+    font-size: 20px;
+}
+
+/*content filter box*/
+.allfilters li,.allfilters div {
+    color: white;
+    text-decoration: none;
+    list-style: none;
+    margin: 0 auto;
+}
+
+.allfilters {
+    display: none;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.allfilters form {
+    border: 1px solid white;
+    width: 100%;
+    padding: 2rem;
+}
+
+.allfilters form ul {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0 auto;
+}
+
+label{
+    display: block;
+}
+
+#Filter:checked + .allfilters {
+    display: flex
+}
+
+/*checkbox*/
+#Filter {
+    display: none;
+}
+
+/* button to submit filter*/
+.allfilters button{
+    height: auto;
+    width: auto;
+    float:right;
+    font-size: 20px;
+    margin:3rem 2rem 0 0 ;
+    background: darkred;
+    color:white;
+    font-family: "Yu Gothic Light";
+    border:none;
+    padding: 3px 5px;
+}
+
+/*display number of members if box group is check*/
+.active {
+    display: none;
+}
+
+#checkbox-members{
+    display:none;
+}
+
+#Band:checked + .active {
+    display: grid;
+    width: 100%;
+}
+
+@media all and (max-width: 990px){
+    .allfilters form ul {
+        display: block;
+    }
+
+    .allfilters form ul li, .allfilters form ul div {
+        border-bottom: 1px solid white;
+        padding-bottom: 1rem;
+        padding-top: 2rem;
+    }
+    .allfilters form ul label {
+        padding-bottom: 1rem;
+    }
+    #Band:checked + .active {
+        display: flex;
+    }
+
+}

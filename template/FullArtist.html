@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="../css/FullArtist.css">
     <link rel="stylesheet" type="text/css" href="../css/Style.css">
     <link rel="stylesheet" type="text/css" href="../css/navbar.css">
-    <link rel="stylesheet" type="text/css" href="../css/filtres.css">
+    <link rel="stylesheet" type="text/css" href="../css/Filters.css">
     <link rel="icon" type="image/x-icon" href="/img/favicon1.ico">
     <link href='https://fonts.googleapis.com/css2?family=Darker+Grotesque&family=Passion+One:wght@700&display=swap'/>
 
@@ -31,10 +31,9 @@
             <li><a class="scroll" href="ArtistPage/{{.ID}}">{{.CreationDate}} | Creation Date</a></li>
             {{end}}
 
-            {{range .Location}}
+            {{range .Location.Index}}
             {{range .Locations}}
-            <li><a class="scroll" href="ArtistPage/{{.}}" style="text-transform: capitalize">{{.}} | Concert
-                Location</a></li>
+            <li><a class="scroll" href="ArtistPage/{{.}}" style="text-transform: capitalize">{{.}} | Concert Location</a></li>
             {{end}}
             {{end}}
 
@@ -49,10 +48,9 @@
     <label class="toggle1" for="toggle"> ☰ </label>
     <input type="checkbox" id="toggle">
     <div class="nav-header">
-        <a class="glitch" id="nav-title" href="/">Groupie Tracker</a>
-        <a href="#menu">Menu</a>
+        <a  href="/">Groupie Tracker</a>
+        <a href="/#menu">Menu</a>
         <a href="/Artist">Artist</a>
-        <a href="/">Map Show</a>
     </div>
 </nav>
 
@@ -94,9 +92,6 @@
                 <form method="post">
                     <ul>
                         <div>
-                            <label for="reset" style="color: #9DA6B3;border-bottom: inset;border-radius: 0px 10px;text-transform: uppercase;border-color: #702220;padding: 5px;">All Artists and Bands</label>
-                            <br><br>
-                            <input placeholder="Reset" autocomplete="off" type="reset" id="reset" name="reset" style="background: linear-gradient(130deg, #131317, #333942);border-radius: 25px;opacity: 95%;box-shadow: 0.25em 0.25em 10px #441A17, -0.5em -0.5em 15px black;border: 1px #FFFF solid;font-weight: bold;color: #FFFFFF; padding: 3px 20px;">
                             <label for="Artist"><br>Artists</label>
                             <input type="checkbox" id="Artist" name="Artist" value="Artist" style="border-radius: 50%; border: inset;">
                             <label for="Band"><br>Bands</label>
@@ -105,8 +100,9 @@
                                 <br>
                                 <label style="text-transform: none" for="checkbox-members">Band's members number</label>
                                 <input type="checkbox" id="checkbox-members" name="checkMembers" value="membersIsCheck">
-                                <label for="idmembers" id="membersSlider">1 to 8 </label>
-                                <input type="range" min="2" max="8" step="1" name="members" id="idmembers">
+                                <label for="idmembers" id="membersSlider">2 to 8</label>
+                                <input type="range" min="2" max="8" step="1" name="members" id="idmembers" onchange="myInput()">
+                                <p id="members"></p>
                             </div>
                         </div>
 
@@ -140,6 +136,14 @@
     </div>
 </section>
 
+<script>
+    function myInput() {
+        var input
+        input = document.getElementById("membersSlider");
+        document.getElementById("members").innerHTML = input
+    }
+
+</script>
 <!--Artist Card With Infomations-->
 <main>
     <div class="container">

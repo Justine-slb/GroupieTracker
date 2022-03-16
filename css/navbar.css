@@ -1,3 +1,5 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
 .topnav {
     top:0;
     height: auto;
@@ -5,13 +7,14 @@
     margin: 0 auto;
     width: 100%;
     position: fixed;
-    background: black ;
+    background: black;
     z-index: 3;
 }
 
 .nav-header{
     width: 100%;
     z-index: 3;
+    padding-top:1.7rem
 }
 
 .search-container{
@@ -73,6 +76,7 @@
     font-size: 14px;
     border: none;
     font-family: "Yu Gothic Light", sans-serif;
+    text-align: center;
 }
 
 .sub-menu {
@@ -195,6 +199,7 @@
     #myInput{
         width: 100%;
         margin:0 auto;
+        text-align: center;
     }
 
     #toggle:checked + .nav-header {

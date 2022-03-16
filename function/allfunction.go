@@ -39,6 +39,19 @@ func ChangetUrlForSearch(find bool) string {
 	return url
 }
 
+/*12 Artists display on the index page*/
+func Featured_Artist() []APIFullData {
+	featured := []APIFullData{}
+	artists := APIHerokuapp
+	for index, value := range artists {
+		featured = append(featured, value)
+		if index == 11 {
+			break
+		}
+	}
+	return featured
+}
+
 /*function filters*/
 func Filters(filters FiltersPost, artists []APIFullData) (ApiHerokuapp, string) {
 	errorMessage := ""
@@ -164,7 +177,6 @@ func GetArtistsData() error {
 		return errors.New("Error by ReadAll")
 	}
 	json.Unmarshal(bytes, &Artists)
-	fmt.Println()
 	return nil
 }
 
@@ -180,7 +192,6 @@ func GetLocations() error {
 		return errors.New("Error by ReadAll")
 	}
 	json.Unmarshal(bytes, &ConcertCountry)
-	fmt.Println(ConcertCountry)
 	return nil
 }
 
@@ -196,7 +207,6 @@ func GetDates() error {
 		return errors.New("Error by ReadAll")
 	}
 	json.Unmarshal(bytes, &ConcertDates)
-	fmt.Println(ConcertDates)
 	return nil
 }
 
@@ -233,7 +243,6 @@ func GetData() {
 		template.Relations = ConcertLocalisation.Index[i].DatesLocation
 		APIHerokuapp = append(APIHerokuapp, template)
 	}
-	fmt.Println(APIHerokuapp)
 	return
 }
 

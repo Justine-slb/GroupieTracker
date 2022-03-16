@@ -3,24 +3,27 @@
 
 body {
     margin:0 auto;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Darker Grotesque', sans-serif;
     background: rgba(20,20,20, 1);
 }
 
+
 h2, h3, h4, h5, p {
-    font-family: "Yu Gothic Light", sans-serif;
+    font-family: 'Darker Grotesque', sans-serif;;
     color:white;
     text-align: center;
 }
 p{
     font-size: 1vmax;
 }
-h1{
+.MainTitre{
+    font-family: 'Passion One', cursive;
     color:white;
     text-align: center;
+    animation: pulsate 2.5s infinite alternate;
 }
 
-h1{font-size: 7vmax }
+h1{font-size: 8vmax }
 h2{font-size: 5vmax }
 h3{font-size: 2.5vmax }
 h4{font-size: 2vmax }
@@ -30,64 +33,6 @@ h2 a:hover{
 }
 h2:hover{
     color:darkred;
-}
-
-/**********/
-/* Glitch */
-/**********/
-
-.glitch {
-    color: white;
-    font-weight: bolder;
-    text-transform: uppercase;
-    text-shadow: 0.05em 0 0 rgba(255,255,255,0.75),-0.025em -0.05em 0 rgba(255,255,255,0.75),0.025em 0.05em 0 rgba(255,255,255,0.75);
-    animation: glitch 500ms infinite;
-    position: relative;
-    left: 0;
-    top: 0;
-}
-
-
-.glitch span:first-child{
-    animation: glitch 650ms infinite;
-    clip-path: polygon(0 0, 100% 0,100% 45%, 0 45%);
-    transform: translate(-.025em, -0.0125em);
-    opacity: 0.8;
-}
-
-.glitch span:last-child{
-    animation: glitch 375ms infinite;
-    clip-path: polygon(0 80%, 100% 20%,100% 100%, 0 100%);
-    transform: translate(0.0125em, 0.025em);
-    opacity: 0.8;
-}
-
-@keyframes glitch {
-    0%,14%{
-        text-shadow: 0.05em 0 0 rgba(255,255,255,0.75),
-        -0.05em -0.025em 0 rgba(255,255,255,1),
-        -0.025em 0.05em 0 rgba(255,20,0,0.5);
-    }
-    15%,49%{
-        text-shadow: -0.05em -0.025em 0 rgba(255,255,255,0.75),
-        0.05em 0.025em 0 rgba(255,20,0,0.5),
-        -0.05em -0.05em 0 rgba(255,255,255,0.75);
-    }
-    50%,99%{
-        text-shadow: 0.025em 0.05em 0 rgba(255,255,255,0.75),
-        0.05em 0 0 rgba(0,0,0,0.75),
-        0 -0.05em 0 rgba(255,255,255,0.75);
-    }
-    100%{
-        text-shadow: -0.025em 0 0 rgba(255,255,255,1),
-        -0.025em -0.025em 0 rgba(0,0,0,0.75),
-        -0.025em -0.05em 0 rgba(255,255,255,0.75);
-    }
-}
-
-img {
-    max-width: 100%;
-    height: auto;
 }
 
 /*first section with photo and website title */
@@ -129,11 +74,12 @@ img {
 }
 
 #myInput2[type=text] {
-    padding-top:6px;
-    font-size: 30px;
+    padding-top:11px;
+    font-size: 25px;
     border: none;
     font-family: "Yu Gothic Light", sans-serif;
     width: 25vmax;
+    text-align: center;
 }
 
 .main_search_bar button {
@@ -165,6 +111,7 @@ img {
         border: none;
         font-family: "Yu Gothic Light", sans-serif;
         width: 25vmax;
+        text-align: center;
     }
 }
 
@@ -262,7 +209,7 @@ img {
     gap : 1.5rem;
     grid-template-columns: 1fr;
     grid-template-rows: 2fr;
-    width: 100%;
+    width: 70%;
 }
 
 .link_Artist{

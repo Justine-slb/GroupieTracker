@@ -205,4 +205,8 @@
     #toggle:checked + .nav-header {
         display: block;
     }
+
+    .toggle1{
+        display: flex;
+    }
 }

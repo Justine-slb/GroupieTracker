@@ -1,0 +1,41 @@
+#error{
+    padding-top: 80px;
+    margin: 0 auto;
+    font-family: 'Passion One', cursive;
+    color:white;
+    text-align: center;
+    height: 500px;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    max-height: 400px;
+    padding-top:4rem;
+    padding-bottom: 4rem;
+}
+
+.container h1 {
+    font-size: 4vmax;
+    text-decoration: none;
+    font-family: "Yu Gothic Light", cursive;
+    color:white;
+}
+
+.container h1 a{
+    font-size: 4vmax;
+    text-decoration: none;
+    font-family: 'Passion One', cursive;
+    color:white;
+    margin-bottom: -18px;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-color: #702220;
+    opacity: 80%;
+}
+.container h1 a:hover{
+    color:darkred;
+}
+
+

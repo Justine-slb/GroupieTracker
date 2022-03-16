@@ -5,27 +5,32 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 )
 
-func Research(research string, artists ApiHerokuapp) (APIFullData, bool) {
+func Research(research string, artists ApiHerokuapp) (APIFullData, bool, string) {
 	var answer_research APIFullData
+	var url string
 	for _, value := range artists {
 		if strings.EqualFold(value.Name, research) == true || strings.EqualFold(value.Name, research) == true || strings.EqualFold(value.Name, research) == true || strings.EqualFold(value.FirstAlbum, research) == true {
 			answer_research = value
-			return answer_research, true
+			url = "/ArtistPage/" + string(value.ID)
+			return answer_research, true, url
 		} else {
 			for _, members := range value.Members {
 				if strings.EqualFold(members, research) == true {
 					answer_research = value
-					return answer_research, true
+					url = "/ArtistPage/" + string(value.ID)
+					return answer_research, true, url
 				}
 			}
 		}
 	}
-	return answer_research, false
+	return answer_research, false, url
 }
 
 /*search*/
@@ -39,6 +44,27 @@ func ChangetUrlForSearch(find bool) (string, string) {
 		errorMessage = "No Matching, sorry"
 	}
 	return url, errorMessage
+}
+
+func Save(url string) {
+	dataBytes, err := json.Marshal(url) //json.Marshal() convert Struct into Byte data, This method takes object as a param and returned Bytes code
+	file, err := os.Create("save.txt")  //create a file save.txt
+	if err != nil {
+		log.Fatal("Error", err)
+	}
+	defer file.Close()
+	fmt.Fprintf(file, string(dataBytes)) //take the Json Marshal into the file text
+	return
+}
+
+func Load() string { // this function read the args in put in the terminal
+	var url string
+	content, err := ioutil.ReadFile("save.txt")
+	err = json.Unmarshal(content, &url) // convert Json Marshal in structure
+	if err != nil {                     // if err content data, there is an error, so that print an error message
+		fmt.Println(err)
+	}
+	return url
 }
 
 /*12 Artists display on the index page*/

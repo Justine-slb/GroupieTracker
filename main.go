@@ -37,35 +37,31 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	location := function.ConcertCountry
 	artists := function.APIHerokuapp
 	featured := function.Featured_Artist()
-	url := "/Artist/"
+
 	var errorMessage string
-	research := function.APIFullData{}
 	var find bool
+	var url string
+
 	search := r.FormValue("search")
+	research := function.APIFullData{}
+
+	if search != "" {
+		research, find, url = function.Research(search, artists)
+		if find == true {
+			_, errorMessage = function.ChangetUrlForSearch(find)
+		}
+	}
+
 	_, week := time.Now().ISOWeek()
 	weekArtist := artists[week]
 
-	if search != "" {
-		research, find = function.Research(search, artists)
-		url, errorMessage = function.ChangetUrlForSearch(find)
-		fmt.Println(url)
-	} else {
-		url = "/"
-	}
 	index := PageIndex{artists, featured, research, location, weekArtist, url, errorMessage}
-	if search != "" {
-		research, find = function.Research(search, artists)
-		url, errorMessage = function.ChangetUrlForSearch(find)
-		fmt.Println(url)
-	} else {
-		url = "/"
-	}
+
 	tmpl := template.Must(template.ParseFiles("template/index.html"))
 	err := tmpl.ExecuteTemplate(w, "index", index)
 	if err != nil {
 		fmt.Println(err)
 	}
-
 }
 
 //-------------------------FullArtistPage--------------------------//
@@ -78,8 +74,8 @@ func FullArtistPage(w http.ResponseWriter, r *http.Request) {
 	var errorMessage string
 	search := r.FormValue("search")
 	if search != "" {
-		research, find = function.Research(search, data)
-		url, errorMessage = function.ChangetUrlForSearch(find)
+		research, find, url = function.Research(search, data)
+		_, errorMessage = function.ChangetUrlForSearch(find)
 	}
 	members, _ := strconv.Atoi(r.FormValue("members"))
 	start, _ := strconv.Atoi(r.FormValue("CreationDateStart"))
@@ -101,23 +97,38 @@ func FullArtistPage(w http.ResponseWriter, r *http.Request) {
 func MoreinfoArtistPage(w http.ResponseWriter, r *http.Request) {
 	var id int
 	data := function.APIFullData{}
-	fullData := function.APIHerokuapp
+	Artists := function.APIHerokuapp
 	if r.URL.Query().Get("search") != "" {
 		ids := r.URL.Query().Get("search")
-		search, find := function.Research(ids, fullData)
+		search, find, _ := function.Research(ids, Artists)
 		fmt.Println("search is ", search)
 		if find == true {
 			data = function.GetDatabyId(search.ID - 1)
-			fmt.Println(data)
+			t, _ := template.ParseFiles("template/moreinfo-Copie.html")
+			err := t.Execute(w, data)
+			if err != nil {
+				fmt.Println(err)
+			}
+		} else {
+			t, _ := template.ParseFiles("template/error.html")
+			err := t.Execute(w, Artists)
+			if err != nil {
+				fmt.Println(err)
+			}
 		}
 	} else {
 		id, _ = strconv.Atoi(r.URL.Path[12:])
 		data = function.GetDatabyId(id - 1)
+		t, _ := template.ParseFiles("template/moreinfo-Copie.html")
+		err := t.Execute(w, data)
+		if err != nil {
+			fmt.Println(err)
+		}
 	}
+
 	//t, _ := template.ParseFiles("template/MoreSoloInfoPage.html")
 	//	t, _ := template.ParseFiles("template/MoreGroupInfoPage.html")
-	t, _ := template.ParseFiles("template/moreinfo-Copie.html")
-	t.Execute(w, data)
+
 }
 
 //------------------------Filter--------------------------------//

@@ -34,11 +34,10 @@ type AllArtistsPage struct {
 
 //------------------------Index-----------------------------------//
 func Index(w http.ResponseWriter, r *http.Request) {
-	index := PageIndex{}
 	location := function.ConcertCountry
 	artists := function.APIHerokuapp
 	featured := function.Featured_Artist()
-	url := ""
+	url := "/Artist/"
 	var errorMessage string
 	research := function.APIFullData{}
 	var find bool
@@ -49,9 +48,18 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	if search != "" {
 		research, find = function.Research(search, artists)
 		url, errorMessage = function.ChangetUrlForSearch(find)
+		fmt.Println(url)
+	} else {
+		url = "/"
 	}
-
-	index = PageIndex{artists, featured, research, location, weekArtist, url, errorMessage}
+	index := PageIndex{artists, featured, research, location, weekArtist, url, errorMessage}
+	if search != "" {
+		research, find = function.Research(search, artists)
+		url, errorMessage = function.ChangetUrlForSearch(find)
+		fmt.Println(url)
+	} else {
+		url = "/"
+	}
 	tmpl := template.Must(template.ParseFiles("template/index.html"))
 	err := tmpl.ExecuteTemplate(w, "index", index)
 	if err != nil {

@@ -33,7 +33,7 @@ func ChangetUrlForSearch(find bool) (string, string) {
 	var url string
 	var errorMessage string
 	if find == true {
-		url = "/ArtistPage"
+		url = "/ArtistPage/"
 	} else {
 		url = "/"
 		errorMessage = "No Matching, sorry"

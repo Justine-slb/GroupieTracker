@@ -88,8 +88,22 @@ func FullArtistPage(w http.ResponseWriter, r *http.Request) {
 
 //-------------------MoreArtistInfoPage--------------------------//
 func MoreinfoArtistPage(w http.ResponseWriter, r *http.Request) {
-	id, _ := strconv.Atoi(r.URL.Path[12:])
-	data := function.GetDatabyId(id - 1)
+	var id int
+	data := function.APIFullData{}
+	fullData := function.APIHerokuapp
+	if r.URL.Query().Get("search") != "" {
+		ids := r.URL.Query().Get("search")
+		fmt.Println("ids représente : " + ids)
+		search, find := function.Research(ids, fullData)
+		fmt.Println("search is ", search)
+		if find == true {
+			data = function.GetDatabyId(search.ID - 1)
+			fmt.Println(data)
+		}
+	} else {
+		id, _ = strconv.Atoi(r.URL.Path[12:])
+		data = function.GetDatabyId(id - 1)
+	}
 	//t, _ := template.ParseFiles("template/MoreSoloInfoPage.html")
 	//	t, _ := template.ParseFiles("template/MoreGroupInfoPage.html")
 	t, _ := template.ParseFiles("template/moreinfo-Copie.html")

@@ -89,15 +89,11 @@ func Filters_Creation(filters FiltersPost, allArtists ApiHerokuapp) ApiHerokuapp
 			new_artists = append(new_artists, value)
 		}
 	}
-	fmt.Println("Le resultat band ou artist est :")
-	fmt.Println(new_artists)
 	return new_artists
 }
 
 func Filter_Band_Art(filters FiltersPost, allArtists []APIFullData) []APIFullData {
 	new_artists := []APIFullData{}
-	fmt.Println(filters.Band)
-	fmt.Println(filters.Artist)
 	if filters.Artist == "Artist" && filters.Band == "Band" || (filters.Artist == "" && filters.Band == "") {
 		for _, value := range allArtists {
 			new_artists = append(new_artists, value)
@@ -114,8 +110,6 @@ func Filter_Band_Art(filters FiltersPost, allArtists []APIFullData) []APIFullDat
 		for _, value := range allArtists {
 			if len(value.Members) > 1 {
 				if filters.Members != 0 {
-					fmt.Println(filters.Members)
-					fmt.Println(".....................")
 					if len(value.Members) >= filters.Members {
 						new_artists = append(new_artists, value)
 					}
@@ -125,11 +119,6 @@ func Filter_Band_Art(filters FiltersPost, allArtists []APIFullData) []APIFullDat
 			}
 		}
 	}
-	fmt.Println("Le resultat band ou artist est :")
-	for _, value := range new_artists {
-		fmt.Println(len(value.Members))
-	}
-
 	return new_artists
 }
 
@@ -153,8 +142,6 @@ func Filter_first_Album(filters FiltersPost, allArtists []APIFullData) []APIFull
 				}
 			}
 		}
-		fmt.Println("Le resultat firstAlbum est :")
-		fmt.Println(new_artists)
 		return new_artists
 	} else {
 		return allArtists

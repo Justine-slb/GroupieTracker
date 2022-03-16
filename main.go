@@ -48,11 +48,6 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	}
 	_, week := time.Now().ISOWeek()
 	weekArtist := artists[week]
-	for _, value := range weekArtist.Relations {
-		for _, value2 := range value {
-			fmt.Println(value2)
-		}
-	}
 
 	index := PageIndex{artists, featured, research, location, weekArtist, url, errorMessage}
 	tmpl := template.Must(template.ParseFiles("template/index.html"))

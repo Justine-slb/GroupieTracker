@@ -145,7 +145,7 @@
             <h3>Concerts dates and locations</h3>
             <br>
             {{ range $key, $value := .WeekArtist.Relations }}
-            <h3 style="text-transform: capitalize; font-size: medium">{{$key}}:</h3>
+            <h3 class = "ville" style="text-transform: capitalize; font-size: 1.5vmax" >{{$key}}:</h3>
             <p>{{range $value}}{{.}}, {{end}}</p>{{ end }}
         </div>
         <div class="Photo_Art_Week">

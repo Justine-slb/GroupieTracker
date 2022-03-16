@@ -19,7 +19,7 @@
 
 <nav class="topnav">
     <form class="search-container" method="GET" action="{{.LinkUrl}}">
-        <input type="text" id="myInput" name="search" onkeyup="myFunction()" placeholder="Search by Artist.."
+        <input type="text" id="myInput" name="search" onkeyup="myFunction()" placeholder="Search"
                autocomplete="off">
         <button type="submit"><i class="fa fa-search"></i></button>
         <ul id="myUL" class="sub-menu">
@@ -105,7 +105,6 @@
                                 <p id="members"></p>
                             </div>
                         </div>
-
                         <li>
                             <label style="color: #9DA6B3;border-bottom: inset;border-radius: 0px 10px;text-transform: uppercase;border-color: #702220;padding: 5px;" for="CreationDateStart">Year of creation between: </label><br><br>
                             <input style="padding: 5px 20px; text-transform: none; border-radius: 50px" type="text" min="1960" max="2010" step="5" name="CreationDateStart"
@@ -116,7 +115,6 @@
                                    id="CreationDateEnd"
                                    placeholder="years end" autocomplete="off">
                         </li>
-
                         <li>
                             <label style="color: #9DA6B3;border-bottom: inset;border-radius: 0px 10px;text-transform: uppercase;border-color: #702220;padding: 5px;" for="FirstAlbumStart">Released of the First album between: </label><br><br>
                             <input style="padding: 5px 20px; text-transform: none; border-radius: 50px" type="text" name="FirstAlbumStart"
@@ -138,12 +136,16 @@
 
 <script>
     function myInput() {
-        var input
-        input = document.getElementById("membersSlider");
-        document.getElementById("members").innerHTML = input
+        var slider = document.getElementById("idmembers");
+        var output = document.getElementById("members");
+        output.innerHTML = "between 2 and "+ slider.value;
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        }
     }
 
 </script>
+
 <!--Artist Card With Infomations-->
 <main>
     <div class="container">

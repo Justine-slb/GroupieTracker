@@ -285,6 +285,12 @@ h2:hover{
     font-size: 2vmax;
     text-transform: none;
 }
+.Art_week_info p {
+    font-size: 1.5vmax;
+}
+.ville{
+    font-size: 2vmax;
+}
 
 .Photo_Art_Week img {
     padding: 1rem;

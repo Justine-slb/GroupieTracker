@@ -29,14 +29,16 @@ func Research(research string, artists ApiHerokuapp) (APIFullData, bool) {
 }
 
 /*search*/
-func ChangetUrlForSearch(find bool) string {
+func ChangetUrlForSearch(find bool) (string, string) {
 	var url string
+	var errorMessage string
 	if find == true {
 		url = "/ArtistPage"
 	} else {
 		url = "/"
+		errorMessage = "No Matching, sorry"
 	}
-	return url
+	return url, errorMessage
 }
 
 /*12 Artists display on the index page*/

@@ -20,7 +20,7 @@ type PageIndex struct {
 	Location   function.LocationData
 	WeekArtist function.APIFullData
 	LinkUrl    string
-	err        string
+	Error      string
 }
 
 type AllArtistsPage struct {
@@ -34,27 +34,30 @@ type AllArtistsPage struct {
 
 //------------------------Index-----------------------------------//
 func Index(w http.ResponseWriter, r *http.Request) {
+	index := PageIndex{}
 	location := function.ConcertCountry
 	artists := function.APIHerokuapp
 	featured := function.Featured_Artist()
-	var url string
+	url := ""
 	var errorMessage string
 	research := function.APIFullData{}
 	var find bool
 	search := r.FormValue("search")
-	if search != "" {
-		research, find = function.Research(search, artists)
-		url = function.ChangetUrlForSearch(find)
-	}
 	_, week := time.Now().ISOWeek()
 	weekArtist := artists[week]
 
-	index := PageIndex{artists, featured, research, location, weekArtist, url, errorMessage}
+	if search != "" {
+		research, find = function.Research(search, artists)
+		url, errorMessage = function.ChangetUrlForSearch(find)
+	}
+
+	index = PageIndex{artists, featured, research, location, weekArtist, url, errorMessage}
 	tmpl := template.Must(template.ParseFiles("template/index.html"))
 	err := tmpl.ExecuteTemplate(w, "index", index)
 	if err != nil {
 		fmt.Println(err)
 	}
+
 }
 
 //-------------------------FullArtistPage--------------------------//
@@ -68,7 +71,7 @@ func FullArtistPage(w http.ResponseWriter, r *http.Request) {
 	search := r.FormValue("search")
 	if search != "" {
 		research, find = function.Research(search, data)
-		url = function.ChangetUrlForSearch(find)
+		url, errorMessage = function.ChangetUrlForSearch(find)
 	}
 	members, _ := strconv.Atoi(r.FormValue("members"))
 	start, _ := strconv.Atoi(r.FormValue("CreationDateStart"))
@@ -93,7 +96,6 @@ func MoreinfoArtistPage(w http.ResponseWriter, r *http.Request) {
 	fullData := function.APIHerokuapp
 	if r.URL.Query().Get("search") != "" {
 		ids := r.URL.Query().Get("search")
-		fmt.Println("ids représente : " + ids)
 		search, find := function.Research(ids, fullData)
 		fmt.Println("search is ", search)
 		if find == true {

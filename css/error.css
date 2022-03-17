@@ -1,5 +1,4 @@
 #error{
-    padding-top: 80px;
     margin: 0 auto;
     font-family: 'Passion One', cursive;
     color:white;
@@ -34,7 +33,7 @@
     border-color: #702220;
     opacity: 80%;
 }
-.container h1 a:hover{
+.container h1 .actif:hover{
     color:darkred;
 }
 

@@ -38,9 +38,10 @@
     <label class="toggle1" for="toggle"> ☰ </label>
     <input type="checkbox" id="toggle">
     <div class="nav-header">
-        <a  href="/">Groupie Tracker</a>
+        <a href="/">Groupie Tracker</a>
         <a href="/#menu">Menu</a>
-        <a href="/Artist">Artist</a>
+        <a href="/Artist">Artists</a>
+        <a href="/ArtistPage/{{.Random}}">Random Artist</a>
     </div>
 </nav>
 
@@ -188,10 +189,10 @@
         <a href="https://trello.com/b/XAUiyFZM/groupie-tracker">TRELLO</a>
     </div>
     <div class="Website">
-        <h2>Index</h2>
+        <h2>Website</h2>
         <a href="/Index">Index</a><br>
         <a style="color: #FFFFFF" href="/Artist">AllArtist</a><br>
-        <p>RandomArtistPage</p>
+        <a href="/ArtistPage/{{.Random}}">Random Artist Page</a>
     </div>
 </div>
 </html>

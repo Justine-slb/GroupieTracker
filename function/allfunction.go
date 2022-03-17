@@ -256,3 +256,10 @@ func GetDatabyId(id int) APIFullData {
 	}
 	return data
 }
+
+/*
+func Filters_Location (locations LocationData, loc string) {
+ 	locations = ConcertCountry
+
+}
+*/

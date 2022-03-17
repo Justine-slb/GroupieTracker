@@ -1,3 +1,6 @@
+body{
+    background-image: image("./img/fond.png");
+}
 #error{
     margin: 0 auto;
     font-family: 'Passion One', cursive;

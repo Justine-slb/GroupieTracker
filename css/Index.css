@@ -1,4 +1,6 @@
+
 * {box-sizing: border-box;}
+
 
 img{max-width: 100%; max-height: 100%}
 
@@ -8,14 +10,18 @@ body {
     background: rgba(20,20,20, 1);
 }
 
-
-h2, h3, h4, h5, p {
-    font-family: 'Darker Grotesque', sans-serif;;
+h5{
+    font-family: 'Monoton', cursive;
+}
+h2, h3, h4{
+    font-family: 'Passion One', cursive;
+    text-decoration: none;
     color:white;
     text-align: center;
 }
 p{
     font-size: 1vmax;
+
 }
 .MainTitre{
     font-family: 'Passion One', cursive;
@@ -24,7 +30,8 @@ p{
     animation: pulsate 2.5s infinite alternate;
 }
 
-h1{font-size: 8vmax }
+h1{font-size: 6vmax
+}
 h2{font-size: 5vmax }
 h3{font-size: 2.5vmax }
 h4{font-size: 2vmax }
@@ -53,6 +60,7 @@ h2:hover{
 #Main_Title{
     padding-top:6rem;
     margin: 0 auto;
+    animation: pulsate 2.5s infinite alternate;
 }
 
 .subtitle-page {
@@ -323,3 +331,53 @@ h2:hover{
         0 0 40px #E02C2C;
     }
 }
+
+/**********Footer***********/
+
+.end {  display: grid;
+    padding: 15px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 0.1fr 0.3fr;
+    gap: 20px 30px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "AboutUs Work Website"
+    "Line Line Line"
+    "YNOV-CAMPUS YNOV-CAMPUS Link";
+    background-color: #131317;
+    color: #9DA6B3;
+}
+
+.Link {  display: grid;
+    grid-template-columns: 0.2fr 0.2fr 0.2fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "Web Youtube Instagram";
+    grid-area: Link;
+}
+.linkpicture{
+    width: 45%;
+    background-image: linear-gradient(#441A17, #702220 43%,#E02C2C);
+    box-shadow: 0.05em 0.05em 5px #333942, -0.05em -0.05em 5px #441A17;
+    border: 1px inset  #702220;    border-radius: 50%;    margin: auto;}
+
+.linkpicture:hover{    border: 1px inset  #E02C2C;
+    background-image: linear-gradient(#702220,#E02C2C);}
+
+.Web { grid-area: Web; }
+.Youtube { grid-area: Youtube; }
+.Instagram { grid-area: Instagram; }
+.Line { grid-area: Line; }
+.YNOV-CAMPUS { grid-area: YNOV-CAMPUS; }
+.YNOV-CAMPUS h2{
+    padding: 5px;
+    font-size: 2vw;
+    animation: pulsate 2.5s infinite alternate;
+    font-family: 'Passion One', cursive;
+    text-decoration: none;
+}
+.AboutUs { grid-area: AboutUs; }
+.Work { grid-area: Work; }
+.Website { grid-area: Website; }

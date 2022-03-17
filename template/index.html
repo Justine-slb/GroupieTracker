@@ -21,7 +21,6 @@
             {{range .Artists}}
             <li><a class="scroll" href="ArtistPage/{{.ID}}">{{.Name}} | Artist/Groupe</a></li>
             {{end}}
-
             {{range .Artists}}
             {{range .Members}}
             <li><a class="scroll" href="/ArtistPage/?search={{.}}">
@@ -33,7 +32,7 @@
     <label class="toggle1" for="toggle"> ☰ </label>
     <input type="checkbox" id="toggle">
     <div class="nav-header">
-        <a href="/">Groupie Tracker</a>
+        <a href="/"><img style="width: 1.2%;" src="/css/img/test1.png">Groupie Tracker</a>
         <a href="/#menu">Menu</a>
         <a href="/Artist">Artist</a>
         <p style="float: right">{{.Error}} </p>
@@ -73,35 +72,31 @@
 
 <section class="section2" id="menu">
     <div class="title-section2">
-        <h2 style="font-family: 'Monoton', cursive; color: #FFFFFF; font-weight: lighter; " class="artist_Menu">MENU</h2>
-        <h4 class="subtitle-menu">FIND ALL INFORMATIONS ABOUT ARTISTS AND CONCERT AND LISTEN YOUR FAVORITES SONGS</h4>
+        <h2 style="font-family: 'Monoton', cursive; opacity: 100%; color: #FFFFFF; font-weight: lighter; " class="artist_Menu"><a style="animation: pulsate 2.5s infinite alternate; font-family: 'Monoton', cursive;">MENU</a></h2>
+        <h4 class="subtitle-menu">FIND ALL INFORMATIONS ABOUT ARTISTS AND CONCERT</h4>
     </div>
     <div class="element_Menu">
-        <div class="element">
-            <img class="img_menu" src="../css/img/microphone.png">
+        <div class="element" >
+            <img style="max-width: 400px;" class="img_menu" src="../css/img/microphone.png">
             <h4>ARTIST INFO</h4>
-            <p style="text-transform: none">You can choose your Artist with the search bar or into the list in the page
-                Artist.<br>
-                Clic and you gonna find all information about your favorites Artists or Group Band</p>
+            <p style="text-transform: none">Found all the info than you need from your group for become a real <b>Groupie</b><br><br></p>
         </div>
         <div class="element">
-            <img class="img_menu" src="../css/img/equalizer.png">
+            <img style="max-width: 400px;" class="img_menu" src="../css/img/equalizer.png">
             <h4>FILTERS</h4>
-            <p style="text-transform: none">You want to find a show close to you, you can search with filters to
-                facilitated your search</p>
+            <p style="text-transform: none">You forgot the name of your new obsession, use filters for found it<br><br></p>
         </div>
         <div class="element">
-            <img class="img_menu" src="../css/img/concert.png">
+            <img style="max-width: 400px;" class="img_menu" src="../css/img/concert.png">
             <h4>SHOWS MAP</h4>
-            <p style="text-transform: none">Look all Shows around the world, and find teh concert of your dreams!! </p>
+            <p style="text-transform: none">Found the Concert of your Artist and follow them all around the world<br><br></p>
         </div>
         <div class="element">
-            <img class="img_menu" src="../css/img/music-cd.png">
+            <img style="max-width: 400px;" class="img_menu" src="../css/img/music-cd.png">
             <h4>LISTEN MUSIC</h4>
             <p style="text-transform: none">
                 <b> COMMING SOON </b><br>
-                Direct in your Artist Page, you will can listen all your favorites and follow the
-                lastest news</p>
+                Listen all your favorites and futur playlist</p><br><br>
         </div>
     </div>
 </section>
@@ -109,7 +104,7 @@
 <!--section 3-->
 <section class="section3">
     <div class="box-Artist">
-        <h2 style="font-family: 'Passion One', cursive;"><a style="color:white; text-align: center; animation: pulsate 2.5s infinite alternate;" class="link_Artist" href="/Artist">FEATURES ARTISTS</a></h2>
+        <h2><a style="color:white; font-family: 'Monoton', cursive;font-weight: lighter; text-align: center; animation: pulsate 2.5s infinite alternate;" class="link_Artist" href="/Artist">FEATURES ARTISTS</a></h2>
     </div>
     <div class="photo_caroussel">
         <div class="photo_ligne1">
@@ -128,20 +123,20 @@
 
 <!--section5-->
 <section class="Artist_of_week">
-    <h2><a href="/ArtistPage/{{.WeekArtist.ID}}">ARTIST OF THE WEEK</a></h2><br><br>
+    <h2 ><a style="font-family: 'Monoton', cursive;font-weight: lighter" href="/ArtistPage/{{.WeekArtist.ID}}">ARTIST OF THE WEEK</a></h2><br><br>
     <div class="Artist_week_box">
         <div class="Art_week_info">
-            <h3 style="text-transform: none">This week the artist is </h3>
-            <h4>"{{.WeekArtist.Name}}"</h4>
+            <h3 style="text-transform: none; color: #B1B1B1">This week the artist is </h3>
+            <h4 style="font-family: 'Monoton', cursive;font-weight: lighter">"{{.WeekArtist.Name}}"</h4>
             <br>
-            <h3>Concerts dates and locations</h3>
+            <h3 style="text-transform: none; color: #B1B1B1">Concerts dates and locations</h3>
             <br>
             {{ range $key, $value := .WeekArtist.Relations }}
-            <h3 class = "ville" style="text-transform: capitalize; font-size: 1.5vmax" >{{$key}}:</h3>
-            <p>{{range $value}}{{.}}, {{end}}</p>{{ end }}
+            <h3 class = "ville" style="text-transform: capitalize; font-size: 1.5vmax" ><u>{{$key}}</u>:</h3>
+            <p style="color: #B1B1B1">{{range $value}}{{.}}, {{end}}</p>{{ end }}
         </div>
         <div class="Photo_Art_Week">
-            <img style="border-radius: 50%;    box-shadow: 0.05em 0.05em 45px #441A17, -0.05em -0.05em 45px black;border: thick double #702220;"
+            <img style="border-radius: 50%;    box-shadow: 0.05em 0.05em 45px #441A17, -0.05em -0.05em 45px black;border: thick double white;"
                  src="{{.WeekArtist.Image}}">
         </div>
     </div>
@@ -165,24 +160,24 @@
             </div>
         </div>
         <div class="Line"><hr></div>
-        <div class="YNOV-CAMPUS"><a style="text-decoration: none;" href="https://ynov-toulouse.com/"><h2>Ynov<span style="font-size: 16px;">Campus</span> TOULOUSE</h2></a></div>
+        <div class="YNOV-CAMPUS"><a style="text-decoration: none;"  href="https://ynov-toulouse.com/"><h2 style="font-family: 'Monoton', cursive;font-weight: lighter;">Ynov<span style="font-size: 16px;">Campus</span> TOULOUSE</h2></a></div>
         <div class="AboutUs">
             <h5>About US</h5>
-            <a style="text-decoration: none; color: #B1B1B1;"><b>Justine SEGUIN LE BOULANGER<br></b></a>
-            <a style="text-decoration: none; color: #B1B1B1;"><b>Vanessa TESSIER<br></b></a>
-            <a style="text-decoration: none; color: #B1B1B1;"><b>Bachelor 1 Informatique</b></a>
+            <a style="text-decoration: none; color: #B70000;"><b>Justine SEGUIN LE BOULANGER<br></b></a>
+            <a style="text-decoration: none; color: #B70000;"><b>Vanessa TESSIER<br></b></a>
+            <a style="text-decoration: none; color: #B70000;"><b>Bachelor 1 Informatique</b></a>
         </div>
         <div class="Work">
             <h5>Work</h5>
-            <a style="text-decoration: none; color: #B70000;" href="https://ytrack.learn.ynov.com/intra/toulouse/module-tls/groupie-tracker">Project Display</a><br>
-            <a style="text-decoration: none; color: #B70000;"href="https://groupietrackers.herokuapp.com/api">Groupie-Trackers API</a><br>
-            <a style="text-decoration: none; color: #B70000;"href="https://trello.com/b/XAUiyFZM/groupie-tracker">TRELLO</a>
+            <a style="text-decoration: none; color: #B70000;" href="https://ytrack.learn.ynov.com/intra/toulouse/module-tls/groupie-tracker"><b>Project Display</b></a><br>
+            <a style="text-decoration: none; color: #B70000;"href="https://groupietrackers.herokuapp.com/api"><b>Groupie-Trackers API</b></a><br>
+            <a style="text-decoration: none; color: #B70000;"href="https://trello.com/b/XAUiyFZM/groupie-tracker"><b>TRELLO</b></a>
         </div>
         <div class="Website">
             <h5>Website</h5>
-            <a style="text-decoration: none; color: #B70000;"href="/Index">Index</a><br>
-            <a style="text-decoration: none; color: #B70000;" href="/Artist">AllArtist</a><br>
-            <a style="text-decoration: none; color: #B70000;" >Random Artist Page</a>
+            <a style="text-decoration: none; color: #B70000;"href="/Index"><b>Index</b></a><br>
+            <a style="text-decoration: none; color: #B70000;" href="/Artist"><b>AllArtist<b></b></a><br>
+            <a style="text-decoration: none; color: #B70000;" ><b>Random Artist Page</b></a>
         </div>
     </div>
 </footer>

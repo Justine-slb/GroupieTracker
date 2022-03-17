@@ -10,38 +10,22 @@ import (
 	"strings"
 )
 
-func Research(research string, artists ApiHerokuapp) (APIFullData, bool, string) {
+func Research(research string, artists ApiHerokuapp) (APIFullData, bool) {
 	var answer_research APIFullData
-	var url string
 	for _, value := range artists {
 		if strings.EqualFold(value.Name, research) == true || strings.EqualFold(value.Name, research) == true || strings.EqualFold(value.Name, research) == true || strings.EqualFold(value.FirstAlbum, research) == true {
 			answer_research = value
-			url = "/ArtistPage/" + string(value.ID)
-			return answer_research, true, url
+			return answer_research, true
 		} else {
 			for _, members := range value.Members {
 				if strings.EqualFold(members, research) == true {
 					answer_research = value
-					url = "/ArtistPage/" + string(value.ID)
-					return answer_research, true, url
+					return answer_research, true
 				}
 			}
 		}
 	}
-	return answer_research, false, url
-}
-
-/*search*/
-func ChangetUrlForSearch(find bool) (string, string) {
-	var url string
-	var errorMessage string
-	if find == true {
-		url = "/ArtistPage/"
-	} else {
-		url = "/"
-		errorMessage = "No Matching, sorry"
-	}
-	return url, errorMessage
+	return answer_research, false
 }
 
 /*12 Artists display on the index page*/
@@ -68,7 +52,7 @@ func Filters(filters FiltersPost, artists []APIFullData) (ApiHerokuapp, string) 
 			fmt.Println("Artists filtrés")
 			artists = artistsFilters
 		} else {
-			errorMessage = "no matching, Sorry"
+			errorMessage = "No matching Artist or Band, SORRY!"
 		}
 	}
 	return artists, errorMessage

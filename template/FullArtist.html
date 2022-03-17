@@ -97,22 +97,22 @@
                             </div>
                         </div>
                         <li>
-                            <label style="color: #9DA6B3;border-bottom: inset;border-radius: 0px 10px;text-transform: uppercase;border-color: #702220;padding: 5px;" for="CreationDateStart">Year of creation between: </label><br><br>
-                            <input style="padding: 5px 20px; text-transform: none; border-radius: 50px" type="text" min="1960" max="2010" step="5" name="CreationDateStart"
+                            <label style="color: #9DA6B3;border-bottom: inset;border-radius: 0px 10px;text-transform: uppercase;border-color: #702220;padding: 5px; " for="CreationDateStart">Year of creation between: </label><br><br>
+                            <input style="padding: 5px 20px; text-transform: none; border-radius: 50px; width: 200px; font-size: 20px;" type="number" min="1960" max="2020" step="5" name="CreationDateStart"
                                    id="CreationDateStart"
                                    placeholder="years start" autocomplete="off">
                             <label for="CreationDateEnd"><br>and : </label><br>
-                            <input style="padding: 5px 20px; text-transform: none; border-radius: 50px" type="text" min="1960" max="2010" step="5" name="CreationDateEnd"
+                            <input style="padding: 5px 20px; text-transform: none; border-radius: 50px; width: 200px; font-size: 20px;" type="number" min="1960" max="2020" step="5" name="CreationDateEnd"
                                    id="CreationDateEnd"
                                    placeholder="years end" autocomplete="off">
                         </li>
                         <li>
                             <label style="color: #9DA6B3;border-bottom: inset;border-radius: 0px 10px;text-transform: uppercase;border-color: #702220;padding: 5px;" for="FirstAlbumStart">Released of the First album between: </label><br><br>
-                            <input style="padding: 5px 20px; text-transform: none; border-radius: 50px" type="text" name="FirstAlbumStart"
+                            <input style="padding: 5px 20px; text-transform: none; border-radius: 50px; width: 200px; font-size: 20px;" type="number" min="1960" max="2020" name="FirstAlbumStart"
                                    id="FirstAlbumStart"
                                    placeholder="years start" autocomplete="off">
                             <label for="FirstAlbumEnd"><br>and : </label><br>
-                            <input style="padding: 5px 20px; text-transform: none; border-radius: 50px" type="text" name="FirstAlbumEnd"
+                            <input style="padding: 5px 20px; text-transform: none; border-radius: 50px; width: 200px; font-size: 20px" type="number" min="1960" max="2020" name="FirstAlbumEnd"
                                    id="FirstAlbumEnd"
                                    placeholder="years end" autocomplete="off">
                         </li>
@@ -120,7 +120,7 @@
                     <button type="submit">submit</button>
                 </form>
             </div>
-            <h5>{{.Error}}</h5>
+            <p style="font-size: 2vmax;color: #FFFFFF; text-align: center">{{.Error}}</p>
         </div>
     </div>
 </section>

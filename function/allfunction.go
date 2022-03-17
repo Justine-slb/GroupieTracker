@@ -77,22 +77,24 @@ func Filters(filters FiltersPost, artists []APIFullData) (ApiHerokuapp, string) 
 /*function filters */
 func Filters_Creation(filters FiltersPost, allArtists ApiHerokuapp) ApiHerokuapp {
 	new_artists := []APIFullData{}
-	for _, value := range allArtists {
-		if filters.End != 0 && filters.Start != 0 {
-			if filters.Start <= value.CreationDate && filters.End >= value.CreationDate {
-				new_artists = append(new_artists, value)
+	if filters.End != 0 || filters.Start != 0 {
+		for _, value := range allArtists {
+			if filters.End != 0 && filters.Start != 0 {
+				if filters.Start <= value.CreationDate && filters.End >= value.CreationDate {
+					new_artists = append(new_artists, value)
+				}
+			} else if filters.End != 0 && filters.Start == 0 {
+				if filters.End >= value.CreationDate {
+					new_artists = append(new_artists, value)
+				}
+			} else if filters.End == 0 && filters.Start != 0 {
+				if filters.Start <= value.CreationDate {
+					new_artists = append(new_artists, value)
+				}
 			}
-		} else if filters.End != 0 && filters.Start == 0 {
-			if filters.End >= value.CreationDate {
-				new_artists = append(new_artists, value)
-			}
-		} else if filters.End == 0 && filters.Start != 0 {
-			if filters.Start <= value.CreationDate {
-				new_artists = append(new_artists, value)
-			}
-		} else {
-			new_artists = append(new_artists, value)
 		}
+	} else {
+		new_artists = allArtists
 	}
 	return new_artists
 }
@@ -257,9 +259,30 @@ func GetDatabyId(id int) APIFullData {
 	return data
 }
 
-/*
-func Filters_Location (locations LocationData, loc string) {
- 	locations = ConcertCountry
-
+func Filters_Location(locations LocationsArray) {
+	new_Location := LocationsArray{}
+	location_artist := Location_Artist{}
+	m := ""
+	str := ""
+	locations = Get_Locations("https://groupietrackers.herokuapp.com/api/locations")
+	for _, value := range locations {
+		for _, val := range value.Locations {
+			for _, v := range val {
+				if v >= 'a' && v <= 'z' {
+					m = strings.ToUpper(string(v))
+				} else if v >= 'A' && v <= 'Z' {
+					m = string(v)
+				} else if v == '-' {
+					m = "|"
+				} else if v == '_' {
+					m = " "
+				}
+				str += m
+			}
+			str += " "
+			location_artist.Locations = append(location_artist.Locations, str)
+		}
+	}
+	new_Location = append(new_Location, location_artist)
+	fmt.Println(new_Location)
 }
-*/

@@ -249,6 +249,14 @@ h2:hover{
     }
 }
 
+@media screen and (max-width: 500px) {
+    .photo_ligne1{
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /*photo smartphone*/
 .section4 {
     margin: auto 0;
@@ -296,6 +304,16 @@ h2:hover{
 .Art_week_info p {
     font-size: 1.5vmax;
 }
+@media screen and (max-width: 600px) {
+    .Art_week_info p, .Art_week_info h3{
+        display: none;
+    }
+    .Art_week_box{
+        display: block;
+    }
+}
+
+
 .ville{
     font-size: 2vmax;
 }

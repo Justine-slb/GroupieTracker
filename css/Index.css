@@ -159,6 +159,10 @@ h2:hover{
     letter-spacing: 4px;
     font-size: 2vw;
 }
+.element h4{
+    padding-top : 1rem;
+    font-size: 5vmin;
+}
 
 .element_Menu{
     width: 80%;

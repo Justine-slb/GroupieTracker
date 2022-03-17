@@ -62,7 +62,7 @@
 
 <!--section1-->
 <section class="section1">
-    <h1 id="Main_Title" class="mainTitre"> <!--class="glitch"-->GROUPIE TRACKER</h1>
+    <h1 style="font-family: 'Monoton', cursive; color: #FFFFFF; font-weight: lighter; animation: pulsate 2.5s infinite alternate;" id="Main_Title" class="mainTitre">GROUPIE TRACKER</h1>
     <h4 class="subtitle-page">FOLLOW YOUR FAVORITES ARTISTS AROUND THE WORLD</h4>
     <form class="main_search_bar" method="GET" action="/ArtistPage/">
         <input type="text" id="myInput2" name="search" placeholder="search"
@@ -73,7 +73,7 @@
 
 <section class="section2" id="menu">
     <div class="title-section2">
-        <h2 class="artist_Menu">MENU</h2>
+        <h2 style="font-family: 'Monoton', cursive; color: #FFFFFF; font-weight: lighter; " class="artist_Menu">MENU</h2>
         <h4 class="subtitle-menu">FIND ALL INFORMATIONS ABOUT ARTISTS AND CONCERT AND LISTEN YOUR FAVORITES SONGS</h4>
     </div>
     <div class="element_Menu">
@@ -109,7 +109,7 @@
 <!--section 3-->
 <section class="section3">
     <div class="box-Artist">
-        <h2><a class="link_Artist" href="/Artist">FEATURES ARTISTS</a></h2>
+        <h2 style="font-family: 'Passion One', cursive;"><a style="color:white; text-align: center; animation: pulsate 2.5s infinite alternate;" class="link_Artist" href="/Artist">FEATURES ARTISTS</a></h2>
     </div>
     <div class="photo_caroussel">
         <div class="photo_ligne1">
@@ -165,28 +165,26 @@
             </div>
         </div>
         <div class="Line"><hr></div>
-        <div class="YNOV-CAMPUS"><a href="https://ynov-toulouse.com/"><h2>Ynov<span style="font-size: 16px;">Campus</span> TOULOUSE</h2></a></div>
+        <div class="YNOV-CAMPUS"><a style="text-decoration: none;" href="https://ynov-toulouse.com/"><h2>Ynov<span style="font-size: 16px;">Campus</span> TOULOUSE</h2></a></div>
         <div class="AboutUs">
-            <h2>About US</h2>
-            <p>Justine SEGUIN LE BOULANGER</p>
-            <p>Vanessa TESSIER</p>
-            <p>Bachelor 1 Informatique</p>
+            <h5>About US</h5>
+            <a style="text-decoration: none; color: #B1B1B1;"><b>Justine SEGUIN LE BOULANGER<br></b></a>
+            <a style="text-decoration: none; color: #B1B1B1;"><b>Vanessa TESSIER<br></b></a>
+            <a style="text-decoration: none; color: #B1B1B1;"><b>Bachelor 1 Informatique</b></a>
         </div>
         <div class="Work">
-            <h2>Work</h2>
-            <a href="https://ytrack.learn.ynov.com/intra/toulouse/module-tls/groupie-tracker">Project Display</a><br>
-            <a href="https://groupietrackers.herokuapp.com/api">Groupie-Trackers API</a><br>
-            <a href="https://trello.com/b/XAUiyFZM/groupie-tracker">TRELLO</a>
+            <h5>Work</h5>
+            <a style="text-decoration: none; color: #B70000;" href="https://ytrack.learn.ynov.com/intra/toulouse/module-tls/groupie-tracker">Project Display</a><br>
+            <a style="text-decoration: none; color: #B70000;"href="https://groupietrackers.herokuapp.com/api">Groupie-Trackers API</a><br>
+            <a style="text-decoration: none; color: #B70000;"href="https://trello.com/b/XAUiyFZM/groupie-tracker">TRELLO</a>
         </div>
         <div class="Website">
-            <h2>Website</h2>
-            <a href="/Index">Index</a><br>
-            <a style="color: #FFFFFF" href="/Artist">All Artists</a><br>
-            <a href="/ArtistPage/{{.Random}}">Random Artist Page</a>
+            <h5>Website</h5>
+            <a style="text-decoration: none; color: #B70000;"href="/Index">Index</a><br>
+            <a style="text-decoration: none; color: #B70000;" href="/Artist">AllArtist</a><br>
+            <a style="text-decoration: none; color: #B70000;" href="/ArtistPage/{{.Random}}">Random Artist Page</a>
         </div>
     </div>
 </footer>
-
 </html>
-
 {{end}}

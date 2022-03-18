@@ -40,7 +40,8 @@
     <div class="nav-header">
         <a href="/"><img style="width: 1.2%;" src="/css/img/test1.png">Groupie Tracker</a>
         <a href="/#menu">Menu</a>
-        <a href="/Artist">Artist</a>
+        <a href="/Artist">Artists</a>
+        <a href="/ArtistPage/{{.Random}}">Random Artist</a>
     </div>
 </nav>
 
@@ -66,7 +67,8 @@
 
 <section class="Titre">
     <div>
-        <h2 class="glitch"><span aria-hidden="true">Artist</span>Artist<span aria-hidden="true">Artist</span></h2>
+        <h2 style="font-size: 8em; color: #FFFFFF; position: relative; display: flex;justify-content: center;
+    top: 130px;z-index: 2; animation: flicker 1.5s infinite alternate;">Artist</h2>
     </div>
     <div class="Imageeffect">
 
@@ -190,8 +192,8 @@
     <div class="Website">
         <h2>Website</h2>
         <a style="text-decoration: none; color: #B70000;"href="/Index">Index</a><br>
-        <a style="text-decoration: none; color: #B70000;" href="/Artist">AllArtist</a><br>
-        <a style="text-decoration: none; color: #B70000;" >Random Artist Page</a>
+        <a style="text-decoration: none; color: #B70000;" href="/Artist">All Artist</a><br>
+        <a style="text-decoration: none; color: #B70000;" href="/ArtistPage/{{.Random}}">Random Artist Page</a>
     </div>
 </div>
 </html>

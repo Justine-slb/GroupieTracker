@@ -6,6 +6,7 @@ import (
 	//"errors"
 	"fmt"
 	"html/template"
+	"math/rand"
 	//"io/ioutil"
 	"net/http"
 	"strconv"
@@ -21,6 +22,7 @@ type PageIndex struct {
 	WeekArtist function.APIFullData
 	LinkUrl    string
 	Error      string
+	Random     int
 }
 
 type AllArtistsPage struct {
@@ -30,10 +32,12 @@ type AllArtistsPage struct {
 	LinkUrl  string
 	Error    string
 	Members  string
+	Random   int
 }
 
 //------------------------Index-----------------------------------//
 func Index(w http.ResponseWriter, r *http.Request) {
+	rand.Seed(time.Now().UnixNano())
 	location := function.ConcertCountry
 	artists := function.APIHerokuapp
 	featured := function.Featured_Artist()
@@ -51,11 +55,11 @@ func Index(w http.ResponseWriter, r *http.Request) {
 			_, errorMessage = function.ChangetUrlForSearch(find)
 		}
 	}
-
+	random := rand.Intn(52)
 	_, week := time.Now().ISOWeek()
 	weekArtist := artists[week]
 
-	index := PageIndex{artists, featured, research, location, weekArtist, url, errorMessage}
+	index := PageIndex{artists, featured, research, location, weekArtist, url, errorMessage, random}
 
 	tmpl := template.Must(template.ParseFiles("template/index.html"))
 	err := tmpl.ExecuteTemplate(w, "index", index)
@@ -66,12 +70,14 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
 //-------------------------FullArtistPage--------------------------//
 func FullArtistPage(w http.ResponseWriter, r *http.Request) {
+	rand.Seed(time.Now().UnixNano())
 	location := function.ConcertCountry
 	data := function.APIHerokuapp
 	research := function.APIFullData{}
 	var find bool
 	var url string
 	var errorMessage string
+
 	search := r.FormValue("search")
 	if search != "" {
 		research, find, url = function.Research(search, data)
@@ -84,8 +90,11 @@ func FullArtistPage(w http.ResponseWriter, r *http.Request) {
 	firstAlbumEnd, _ := strconv.Atoi(r.FormValue("FirstAlbumEnd"))
 	filters := function.FiltersPost{r.FormValue("Artist"), r.FormValue("Band"), members, start, end, firstAlbumStart, firstAlbumEnd}
 
+	random := rand.Intn(52)
+
 	data, errorMessage = function.Filters(filters, data)
-	artists_Page := AllArtistsPage{data, research, location, url, errorMessage, r.FormValue("members")}
+	artists_Page := AllArtistsPage{data, research, location, url, errorMessage, r.FormValue("members"), random}
+
 	t, _ := template.ParseFiles("template/FullArtist.html")
 	err := t.Execute(w, artists_Page)
 	if err != nil {

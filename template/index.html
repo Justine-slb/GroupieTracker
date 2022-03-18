@@ -21,6 +21,7 @@
             {{range .Artists}}
             <li><a class="scroll" href="ArtistPage/{{.ID}}">{{.Name}} | Artist/Groupe</a></li>
             {{end}}
+
             {{range .Artists}}
             {{range .Members}}
             <li><a class="scroll" href="/ArtistPage/?search={{.}}">
@@ -34,8 +35,8 @@
     <div class="nav-header">
         <a href="/"><img style="width: 1.2%;" src="/css/img/test1.png">Groupie Tracker</a>
         <a href="/#menu">Menu</a>
-        <a href="/Artist">Artist</a>
-        <p style="float: right">{{.Error}} </p>
+        <a href="/Artist">All Artists</a>
+        <a href="/ArtistPage/{{.Random}}">Random Artist</a>
     </div>
 </nav>
 
@@ -63,7 +64,7 @@
 <section class="section1">
     <h1 style="font-family: 'Monoton', cursive; color: #FFFFFF; font-weight: lighter; animation: pulsate 2.5s infinite alternate;" id="Main_Title" class="mainTitre">GROUPIE TRACKER</h1>
     <h4 class="subtitle-page">FOLLOW YOUR FAVORITES ARTISTS AROUND THE WORLD</h4>
-    <form class="main_search_bar" method="GET" action="{{.LinkUrl}}">
+    <form class="main_search_bar" method="GET" action="/ArtistPage/">
         <input type="text" id="myInput2" name="search" placeholder="search"
                autocomplete="off">
         <button type="submit"><i class="fa fa-search"></i></button>
@@ -176,8 +177,8 @@
         <div class="Website">
             <h5>Website</h5>
             <a style="text-decoration: none; color: #B70000;"href="/Index"><b>Index</b></a><br>
-            <a style="text-decoration: none; color: #B70000;" href="/Artist"><b>AllArtist<b></b></a><br>
-            <a style="text-decoration: none; color: #B70000;" ><b>Random Artist Page</b></a>
+            <a style="text-decoration: none; color: #B70000;" href="/Artist"><b>AllArtist</b></b></a><br>
+            <a style="text-decoration: none; color: #B70000;" href="/ArtistPage/{{.Random}}"><b>Random Artist Page</b></a>
         </div>
     </div>
 </footer>

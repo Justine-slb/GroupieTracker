@@ -19,13 +19,15 @@ h2,.glitch span, .Titre .glitch span, a{
 
 
 /*****For big title*****/
-.Titre .glitch {
+.Titre h2 {
     font-size: 8em;
+
     position: relative;
     display: flex;
     justify-content: center;
     top: 130px;
     z-index: 2;
+    animation: flicker 1.5s infinite alternate;
 }
 .Titre .glitch span{
     top: 130px;

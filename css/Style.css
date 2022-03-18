@@ -132,20 +132,19 @@ body {
     }
 }
 
-@keyframes pulsate {
-
-    100% {
-        color: #FCEDED;
-        text-shadow: 0 0 6px #fff,
-        0 0 10px #fff,
-        0 0 20px #E02C2C,
-        0 0 40px #E02C2C,
-        0 0 80px #E02C2C
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+                0 0 2px #fff,
+                0 0 4px #fff,
+                0 0 6px #E02C2C,
+                0 0 10px #E02C2C,
+                0 0 45px #E02C2C,
+                0 0 55px #E02C2C,
+                0 0 70px #E02C2C,
+                0 0 80px #E02C2C;
     }
-    0% {
-        text-shadow: 0 0 2px #fff;
-        color: #702220;
+    20%, 24%, 55% {
+        text-shadow: none;
     }
 }
-
-

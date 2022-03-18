@@ -22,7 +22,7 @@
         <input type="text" id="myInput" name="search" onkeyup="myFunction()" placeholder="Search"
                autocomplete="off">
         <button style="padding-top: 2px; padding-left: 4px;"  type="submit"><i class="fa fa-search"></i></button>
-        <ul id="myUL" class="sub-menu">
+        <ul id="myUL" class="sub-menu" style=" ">
             {{range .Artists}}
             <li><a class="scroll" href="ArtistPage/{{.ID}}">{{.Name}} | Artist/Groupe</a></li>
             {{end}}

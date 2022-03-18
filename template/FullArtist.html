@@ -21,7 +21,7 @@
     <form class="search-container" method="GET" action="/ArtistPage/">
         <input type="text" id="myInput" name="search" onkeyup="myFunction()" placeholder="Search"
                autocomplete="off">
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <button style="padding-top: 2px; padding-left: 4px;"  type="submit"><i class="fa fa-search"></i></button>
         <ul id="myUL" class="sub-menu">
             {{range .Artists}}
             <li><a class="scroll" href="ArtistPage/{{.ID}}">{{.Name}} | Artist/Groupe</a></li>

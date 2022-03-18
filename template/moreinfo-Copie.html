@@ -43,6 +43,15 @@
     </script>
 </head>
 <body>
+
+<section>
+    <section class="ArtistPageName" style="width: auto; padding-bottom: 3rem">
+        <div>
+            <h2 style="font-size: 8vmax;font-weight: lighter;font-family: 'Monoton', cursive; color: #FFFFFF; position: relative; display: flex;justify-content: center;top: 20px;z-index: 2; animation: flicker 1.5s infinite alternate;">{{.Name}}</h2>
+        </div>
+    </section>
+</section>
+
 <section>
     <div class="container2">
         <div class="Concert">
@@ -66,9 +75,9 @@
             </script>
         </div>
         <div class="Deezer">
-            <img src="{{.Image}}">
-            <h2 class="glitch"><span aria-hidden="true">MEMBER</span><span aria-hidden="true">MEMBER</span>MEMBER</h2>
-            <p style="color: #E02C2C;">Do you think than "{{ .Name}}" its an "Artist name" or A "Real name"<br><br></p>
+            <img  style="width: 20%" src="{{.Image}}">
+            <h2 class="glitch" style="font-size: 4vmax"><span aria-hidden="true">MEMBER</span><span aria-hidden="true">MEMBER</span>MEMBER</h2>
+            <p style="color: #E02C2C; font-size: 2vmax">Do you think than "{{ .Name}}" its an "Artist name" or A "Real name"<br><br></p>
             <button class="reveal" onclick="test3()" style="color: #FFFFFF; font-size: 10px; padding: 1%;background: linear-gradient(130deg, #131317, #333942);box-shadow: 0.25em 0.25em 10px #441A17, -0.5em -0.5em 15px black;border: 1px #FFFF solid; font-weight: bold; text-align: center;border-radius: 25px; text-decoration: none;">Get the Answer</button>
             <p id="demo"><br></p>
         </div>
@@ -79,7 +88,7 @@
         </script>
         <div class="Members">
             <img style="width:230px;height:230px;" src="{{.Image}}">
-            <h2 class="glitch"><span aria-hidden="true">{{.Name}}</span><span aria-hidden="true">{{.Name}}</span>{{.Name}}</h2>
+            <h2 class="glitch" style="font-size: 4vmax" ><span aria-hidden="true">{{.Name}}</span><span aria-hidden="true">{{.Name}}</span>{{.Name}}</h2>
             <a  style="color: #FFFFFF; font-size: 10px; padding: 1%;background: linear-gradient(130deg, #131317, #333942);box-shadow: 0.25em 0.25em 10px #441A17, -0.5em -0.5em 15px black;border: 1px #FFFF solid; font-weight: bold; text-align: center;border-radius: 25px; text-decoration: none; position: relative; top: -3%; " href="javascript:history.go(-1)">Return back</a>
         </div>
         <div class="Creation">
@@ -96,42 +105,4 @@
     </div>
 </section>
 </body>
-
-<footer>
-    <hr>
-    <div class="end">
-        <div class="Link">
-            <div class="Web">
-                <a href="https://ynov-toulouse.com/"><img class="linkpicture" src="/img/website.png"></a>
-            </div>
-            <div class="Youtube">
-                <a href="https://www.youtube.com/channel/UC6AwIUywUQu9tBOhAjd1jtQ"><img class="linkpicture" src="/img/youtube.png"></a>
-            </div>
-            <div class="Instagram">
-                <a href="https://www.instagram.com/toulouse_ynovcampus/"><img class="linkpicture" src="/img/instagram.png"></a>
-            </div>
-        </div>
-        <div class="Line"><hr></div>
-        <div class="YNOV-CAMPUS"><a href="https://ynov-toulouse.com/"><h2>Ynov<span style="font-size: 16px;">Campus</span> TOULOUSE</h2></a></div>
-        <div class="AboutUs">
-            <h2>About US</h2>
-            <p>Justine SEGUIN LE BOULANGER</p>
-            <p>Vanessa TESSIER</p>
-            <p>Bachelor 1 Informatique</p>
-        </div>
-        <div class="Work">
-            <h2>Work</h2>
-            <a href="https://ytrack.learn.ynov.com/intra/toulouse/module-tls/groupie-tracker">Project Display</a><br>
-            <a href="https://groupietrackers.herokuapp.com/api">Groupie-Trackers API</a><br>
-            <a href="https://trello.com/b/XAUiyFZM/groupie-tracker">TRELLO</a>
-        </div>
-        <div class="Website">
-            <h2>Website</h2>
-            <a href="/Index">Index</a><br>
-            <a style="color: #FFFFFF" href="/Artist">All Artist</a><br>
-            <a href="/ArtistPage/{{.Random}}">Random Artist Page</a>
-        </div>
-    </div>
-</footer>
-
 </html>

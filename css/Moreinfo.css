@@ -70,6 +70,8 @@ h3, .red h2{
     background: linear-gradient(95deg, #131317,#0B0B0A);
     box-shadow: 0.25em 0.25em 10px #441A17, -0.5em -0.5em 15px black;
     border-style: inset;
+    transform: translateY(-15px);
+
 
 }
 /******************************************/

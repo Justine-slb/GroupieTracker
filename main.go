@@ -103,7 +103,7 @@ func MoreinfoArtistPage(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("search is ", search)
 		if find == true {
 			data = function.GetDatabyId(search.ID - 1)
-			t, _ := template.ParseFiles("template/moreinfo-Copie.html")
+			t, _ := template.ParseFiles("template/moreinfo.html")
 			err := t.Execute(w, data)
 			if err != nil {
 				fmt.Println(err)
@@ -118,7 +118,7 @@ func MoreinfoArtistPage(w http.ResponseWriter, r *http.Request) {
 	} else {
 		id, _ = strconv.Atoi(r.URL.Path[12:])
 		data = function.GetDatabyId(id - 1)
-		t, _ := template.ParseFiles("template/moreinfo-Copie.html")
+		t, _ := template.ParseFiles("template/moreinfo.html")
 		err := t.Execute(w, data)
 		if err != nil {
 			fmt.Println(err)

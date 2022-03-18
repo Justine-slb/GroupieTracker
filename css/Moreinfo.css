@@ -52,6 +52,18 @@ h3, .red h2{
     "MAPS MAPS MAPS MAPS";
 }
 
+@media all and (max-width: 800px) {
+    .container2{
+        display: block;
+    }
+    .container2 div {
+        margin: 5%
+    }
+    .container2 div p, .container2 div h1 , .container2 div h3{
+        font-size: 2vmax;
+    }
+}
+
 .Concert img,.Members img,.Creation img,.First-Album img,.Deezer img{
     border-radius: 50%;
     width: 55px;

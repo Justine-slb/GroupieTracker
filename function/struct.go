@@ -1,5 +1,13 @@
 package function
 
+import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
+)
+
 type Todo struct {
 	Artists   string `json:"artists"`
 	Locations string `json:"locations"`
@@ -90,3 +98,16 @@ var APIHerokuapp []APIFullData
 type ApiHerokuapp []APIFullData
 
 const APIHerokuappURL string = "https://groupietrackers.herokuapp.com/api"
+
+func Get_Locations(url string) LocationsArray {
+	fmt.Println("1. Performing Http Get...")
+	resp, err := http.Get(url)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer resp.Body.Close()
+	bodyBytes, _ := ioutil.ReadAll(resp.Body)
+	var LocationsData LocationsIndex
+	json.Unmarshal(bodyBytes, &LocationsData)
+	return LocationsData.Index
+}

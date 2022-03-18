@@ -22,6 +22,12 @@
             <li><a class="scroll" href="ArtistPage/{{.ID}}">{{.Name}} | Artist/Groupe</a></li>
             {{end}}
 
+            {{range .Location.Index}}
+            {{range .Locations}}
+            <li><a class="scroll" href="ArtistPage/{{.}}" style="text-transform: capitalize">{{.}} | Concert Location</a></li>
+            {{end}}
+            {{end}}
+
             {{range .Artists}}
             {{range .Members}}
             <li><a class="scroll" href="/ArtistPage/?search={{.}}">

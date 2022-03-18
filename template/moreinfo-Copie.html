@@ -54,13 +54,12 @@
 
 <section>
     <div class="container2">
-        <div class="Concert">
-            <img src="{{.Image}}">
-            <h2 class="glitch"><span aria-hidden="true">CONCERT</span><span aria-hidden="true">CONCERT</span>CONCERT</h2>
-            {{ range $key, $value := .Relations }}
-            <h1>{{$key}}:</h1>
-            <p>{{range $value}}<br>{{.}}, {{end}}</p>{{ end }}
+        <div class="Members">
+            <img style="width:50%;" src="{{.Image}}">
+            <h2 class="glitch" style="font-size: 4vmax" ><span aria-hidden="true">{{.Name}}</span><span aria-hidden="true">{{.Name}}</span>{{.Name}}</h2>
+            <a  style="color: #FFFFFF; font-size: 10px; padding: 1%;background: linear-gradient(130deg, #131317, #333942);box-shadow: 0.25em 0.25em 10px #441A17, -0.5em -0.5em 15px black;border: 1px #FFFF solid; font-weight: bold; text-align: center;border-radius: 25px; text-decoration: none; position: relative; top: -3%; " href="javascript:history.go(-1)">Return back</a>
         </div>
+
         <div class="First-Album">
             <div class="red">
                 <h2>?</h2>
@@ -86,11 +85,7 @@
                 document.getElementById("demo").innerHTML = "{{.Members}} is the real name of {{.Name}}";
             }
         </script>
-        <div class="Members">
-            <img style="width:50%;" src="{{.Image}}">
-            <h2 class="glitch" style="font-size: 4vmax" ><span aria-hidden="true">{{.Name}}</span><span aria-hidden="true">{{.Name}}</span>{{.Name}}</h2>
-            <a  style="color: #FFFFFF; font-size: 10px; padding: 1%;background: linear-gradient(130deg, #131317, #333942);box-shadow: 0.25em 0.25em 10px #441A17, -0.5em -0.5em 15px black;border: 1px #FFFF solid; font-weight: bold; text-align: center;border-radius: 25px; text-decoration: none; position: relative; top: -3%; " href="javascript:history.go(-1)">Return back</a>
-        </div>
+
         <div class="Creation">
             <div class="red">
                 <br>
@@ -98,6 +93,13 @@
                 <h3>{{.Name}} <br>debuted in</h3>
                 <h2>{{.CreationDate}}</h2>
             </div>
+        </div>
+        <div class="Concert">
+            <img src="{{.Image}}">
+            <h2 class="glitch"><span aria-hidden="true">CONCERT</span><span aria-hidden="true">CONCERT</span>CONCERT</h2>
+            {{ range $key, $value := .Relations }}
+            <h1>{{$key}}:</h1>
+            <p>{{range $value}}<br>{{.}}, {{end}}</p>{{ end }}
         </div>
         <div class="MAPS">
             <div id="map" style="width: auto; height: 500px;">{{.src}}</div>

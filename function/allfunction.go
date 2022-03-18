@@ -242,31 +242,3 @@ func GetDatabyId(id int) APIFullData {
 	}
 	return data
 }
-
-func Filters_Location(locations LocationsArray) {
-	new_Location := LocationsArray{}
-	location_artist := Location_Artist{}
-	m := ""
-	str := ""
-	locations = Get_Locations("https://groupietrackers.herokuapp.com/api/locations")
-	for _, value := range locations {
-		for _, val := range value.Locations {
-			for _, v := range val {
-				if v >= 'a' && v <= 'z' {
-					m = strings.ToUpper(string(v))
-				} else if v >= 'A' && v <= 'Z' {
-					m = string(v)
-				} else if v == '-' {
-					m = "|"
-				} else if v == '_' {
-					m = " "
-				}
-				str += m
-			}
-			str += " "
-			location_artist.Locations = append(location_artist.Locations, str)
-		}
-	}
-	new_Location = append(new_Location, location_artist)
-	fmt.Println(new_Location)
-}

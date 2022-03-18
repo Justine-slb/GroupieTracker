@@ -1,6 +1,8 @@
-body{
+.errorbody{
     background-image: image("./img/fond.png");
+    background-position: 100%;
 }
+
 #error{
     margin: 0 auto;
     font-family: 'Passion One', cursive;

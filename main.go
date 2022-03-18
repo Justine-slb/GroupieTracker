@@ -38,12 +38,6 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	location := function.ConcertCountry
 	artists := function.APIHerokuapp
 	featured := function.Featured_Artist()
-	relocation := function.Get_Locations("https://groupietrackers.herokuapp.com/api/locations")
-	relocation = function.Filters_Location(relocation)
-
-	for i, value := range relocation {
-		artists[i].Locations = value.Locations
-	}
 
 	search := r.FormValue("search")
 	research := function.APIFullData{}
